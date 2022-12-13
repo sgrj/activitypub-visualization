@@ -1,15 +1,17 @@
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 
 module.exports = {
-  entry: './src/activity-pub-visualization.tsx',
+  entry: './src/index.tsx',
   module: {},
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js',
+    filename: 'bundle.js',
   },
+  plugins: [new HtmlWebpackPlugin()],
   module: {
     rules: [
       {
@@ -30,5 +32,11 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
     ],
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    host: '0.0.0.0',
+    port: 9000,
   },
 };
