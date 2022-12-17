@@ -1,4 +1,5 @@
-var path = require('path');
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: './src/activity-pub-visualization.tsx',
@@ -9,7 +10,13 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
+    library: {
+      name: 'activity_pub_visualization',
+      type: 'umd',
+      export: 'default',
+    },
   },
+  plugins: [new MiniCssExtractPlugin({})],
   module: {
     rules: [
       {
@@ -27,7 +34,7 @@ module.exports = {
       {
         test: /\.css/,
         include: path.resolve(__dirname, 'src'),
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
     ],
   },
