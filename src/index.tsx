@@ -8,9 +8,11 @@ import './input.css';
 const elt = document.createElement('div');
 document.querySelector('body').appendChild(elt);
 
+import logs from './logs.json';
+
 ReactDOM.render(
   <div className='bg-black'>
-    <ActivityPubVisualization />
+    <ActivityPubVisualization logs={logs} />
   </div>,
   elt
 );
