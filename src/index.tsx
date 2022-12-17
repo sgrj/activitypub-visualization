@@ -8,4 +8,9 @@ import './input.css';
 const elt = document.createElement('div');
 document.querySelector('body').appendChild(elt);
 
-ReactDOM.render(<ActivityPubVisualization />, elt);
+ReactDOM.render(
+  <div className='bg-black'>
+    <ActivityPubVisualization />
+  </div>,
+  elt
+);
