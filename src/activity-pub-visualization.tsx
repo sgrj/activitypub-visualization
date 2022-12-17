@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 
 import './input.css';
 
+import type { ILogEvent, IActivity } from './types';
+
 const userRegex = /^https:\/\/([^/]+)\/users\/([^/]+)$/;
 
-function userName(uri) {
+function userName(uri: string) {
   const match = uri.match(userRegex);
 
   if (match !== null) {
@@ -14,7 +16,7 @@ function userName(uri) {
   }
 }
 
-function ActivityDetails({ activity }) {
+function ActivityDetails({ activity }: { activity: IActivity }) {
   switch (activity.type) {
     case 'Follow':
       return (
@@ -42,7 +44,7 @@ function ActivityDetails({ activity }) {
   }
 }
 
-function Activity({ activity, nested = false }) {
+function Activity({ activity, nested = false }: { activity: IActivity; nested?: boolean }) {
   if (!activity.type) {
     return null;
   }
@@ -55,12 +57,14 @@ function Activity({ activity, nested = false }) {
     >
       {activity.actor && <div className='italic mb-1'>From {userName(activity.actor)}</div>}
       <ActivityDetails activity={activity} />
-      {activity.object && <Activity activity={activity.object} nested />}
+      {activity.object != null && typeof activity.object !== 'string' && (
+        <Activity activity={activity.object} nested />
+      )}
     </div>
   );
 }
 
-function LogEvent({ event }) {
+function LogEvent({ event }: { event: ILogEvent }) {
   const [showSource, setShowSource] = useState(false);
 
   return (
@@ -89,13 +93,13 @@ function LogEvent({ event }) {
   );
 }
 
-export default function ActivityPubVisualization({ logs }) {
+export default function ActivityPubVisualization({ logs }: { logs: Array<ILogEvent> }) {
   return (
     <div className='activity-log flex flex-col'>
       {logs
-        .filter((x) => x.type !== 'keep-alive')
-        .map((x) => (
-          <LogEvent event={x} />
+        .filter((event) => event.type !== 'keep-alive')
+        .map((event) => (
+          <LogEvent key={event.data.id} event={event} />
         ))}
     </div>
   );
