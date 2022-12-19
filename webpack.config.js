@@ -2,6 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+  mode: 'production',
   entry: './src/activity-pub-visualization.tsx',
   module: {},
   resolve: {
@@ -37,5 +38,9 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
     ],
+  },
+  externals: {
+    react: 'react',
+    reactDOM: 'react-dom',
   },
 };
