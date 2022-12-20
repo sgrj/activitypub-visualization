@@ -46,8 +46,8 @@ function Activity({ activity, nested = false }: { activity: IActivity; nested?: 
     <div
       className={`my-2 p-0.5 ${
         nested
-          ? 'my-0 bg-gray-200 border-0 border-l-4 border-l-[#6364ff] border-solid'
-          : 'border border-solid border-gray-200 p-1'
+          ? 'my-0 bg-[#393f4f] border-0 border-l-4 border-l-[#6364ff] border-solid'
+          : 'border border-solid border-[#393f4f] p-1'
       }`}
     >
       <ActivityDetails activity={activity} />
@@ -63,24 +63,29 @@ function LogEvent({ event }: { event: ILogEvent }) {
 
   return (
     <div
-      className={`bg-white text-black flex flex-col p-1 m-1 rounded rounded-tl-none w-4/5 ${
+      className={`bg-white text-black dark:bg-[#282c37] dark:text-white flex flex-col p-1 m-1 rounded rounded-tl-none w-4/5 ${
         event.type == 'inbound' ? 'bg-white' : 'bg-white self-end'
       }`}
     >
-      {event.data.actor && <div className='italic'>From {event.data.actor}</div>}
+      {event.data.actor && (
+        <div>
+          <span className='italic'>From</span>
+          <span> {event.data.actor}</span>
+        </div>
+      )}
       <div className='italic overflow-wrap: break-word'>Sent to {event.path}</div>
       <Activity activity={event.data} />
       <div className='flex flex-row items-center justify-between'>
         <div className='time'>{new Date(event.timestamp).toLocaleTimeString()}</div>
         <button
-          className='border-0 p-0 bg-inherit text-blue-400 cursor-pointer'
+          className='border-0 p-0 bg-inherit underline hover:no-underline text-[#606984] cursor-pointer'
           onClick={() => setShowSource(!showSource)}
         >
           {showSource ? 'hide' : 'show'} source
         </button>
       </div>
       {showSource && (
-        <pre className='font-mono overflow-auto bg-gray-200'>
+        <pre className='font-mono overflow-auto bg-[#393f4f] p-1'>
           {JSON.stringify(event.data, null, 2)}
         </pre>
       )}
