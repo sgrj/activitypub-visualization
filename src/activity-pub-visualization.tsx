@@ -44,11 +44,12 @@ function Activity({ activity, nested = false }: { activity: IActivity; nested?: 
 
   return (
     <div
-      className={`p-0.5 rounded ${
-        nested ? 'ml-1 rounded bg-gray-300 border-0 border-l-4 border-l-blue-300 border-solid' : ''
+      className={`my-2 p-0.5 ${
+        nested
+          ? 'my-0 bg-gray-200 border-0 border-l-4 border-l-[#6364ff] border-solid'
+          : 'border border-solid border-gray-200 p-1'
       }`}
     >
-      {activity.actor && <div className='italic mb-1'>From {activity.actor}</div>}
       <ActivityDetails activity={activity} />
       {activity.object != null && typeof activity.object !== 'string' && (
         <Activity activity={activity.object} nested />
@@ -63,13 +64,14 @@ function LogEvent({ event }: { event: ILogEvent }) {
   return (
     <div
       className={`bg-white text-black flex flex-col p-1 m-1 rounded rounded-tl-none w-4/5 ${
-        event.type == 'inbound' ? 'bg-white' : 'bg-[#d9fdd3] self-end'
+        event.type == 'inbound' ? 'bg-white' : 'bg-white self-end'
       }`}
     >
+      {event.data.actor && <div className='italic'>From {event.data.actor}</div>}
+      <div className='italic overflow-wrap: break-word'>Sent to {event.path}</div>
       <Activity activity={event.data} />
-      <div className='flex flex-row items-center justify-between mt-4'>
+      <div className='flex flex-row items-center justify-between'>
         <div className='time'>{new Date(event.timestamp).toLocaleTimeString()}</div>
-        <div className='text-gray-500 overflow-wrap: break-word'>Sent to {event.path}</div>
         <button
           className='border-0 p-0 bg-inherit text-blue-400 cursor-pointer'
           onClick={() => setShowSource(!showSource)}
