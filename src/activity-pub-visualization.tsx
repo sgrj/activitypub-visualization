@@ -17,31 +17,24 @@ function userName(uri: string) {
 }
 
 function ActivityDetails({ activity }: { activity: IActivity }) {
-  switch (activity.type) {
-    case 'Follow':
-      return (
-        <>
-          <div className='font-bold'>Follow</div>
-          <div className='object'>{activity.object}</div>
-        </>
-      );
-    case 'Like':
-      return (
-        <>
-          <div className='font-bold'>Like</div>
-          <div className='object'>{activity.object}</div>
-        </>
-      );
-    case 'Note':
-      return (
-        <>
-          <div className='font-bold'>Note</div>
-          <div className='object'>{activity.content}</div>
-        </>
-      );
-    default:
-      return <div className='font-bold'>{activity.type}</div>;
-  }
+  const internal = () => {
+    switch (activity.type) {
+      case 'Follow':
+      case 'Like':
+        return <div className='object'>{activity.object}</div>;
+      case 'Note':
+        return <div className='object'>{activity.content}</div>;
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div>
+      <div className='font-bold'>{activity.type}</div>
+      {internal()}
+    </div>
+  );
 }
 
 function Activity({ activity, nested = false }: { activity: IActivity; nested?: boolean }) {
@@ -52,10 +45,10 @@ function Activity({ activity, nested = false }: { activity: IActivity; nested?: 
   return (
     <div
       className={`p-0.5 rounded ${
-        nested ? 'rounded bg-gray-300 border-0 border-l-4 border-l-blue-300 border-solid' : ''
+        nested ? 'ml-1 rounded bg-gray-300 border-0 border-l-4 border-l-blue-300 border-solid' : ''
       }`}
     >
-      {activity.actor && <div className='italic mb-1'>From {userName(activity.actor)}</div>}
+      {activity.actor && <div className='italic mb-1'>From {activity.actor}</div>}
       <ActivityDetails activity={activity} />
       {activity.object != null && typeof activity.object !== 'string' && (
         <Activity activity={activity.object} nested />
@@ -74,7 +67,7 @@ function LogEvent({ event }: { event: ILogEvent }) {
       }`}
     >
       <Activity activity={event.data} />
-      <div className='flex flex-row items-center justify-between mt-8'>
+      <div className='flex flex-row items-center justify-between mt-4'>
         <div className='time'>{new Date(event.timestamp).toLocaleTimeString()}</div>
         <div className='text-gray-500 overflow-wrap: break-word'>Sent to {event.path}</div>
         <button
@@ -95,7 +88,7 @@ function LogEvent({ event }: { event: ILogEvent }) {
 
 export default function ActivityPubVisualization({ logs }: { logs: Array<ILogEvent> }) {
   return (
-    <div className='activity-log flex flex-col'>
+    <div className='font-[sans-serif] text-[13px] flex flex-col'>
       {logs
         .filter((event) => event.type !== 'keep-alive')
         .map((event) => (

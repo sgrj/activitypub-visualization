@@ -12,6 +12,8 @@ document.querySelector('body').appendChild(elt);
 
 import logs from './logs.json';
 
+document.querySelector('body').style.margin = '0';
+
 ReactDOM.render(
   <div className='bg-black'>
     <ActivityPubVisualization logs={logs as Array<ILogEvent>} />
