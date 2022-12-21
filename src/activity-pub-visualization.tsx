@@ -21,9 +21,9 @@ function ActivityDetails({ activity }: { activity: IActivity }) {
     switch (activity.type) {
       case 'Follow':
       case 'Like':
-        return <div className='object'>{activity.object}</div>;
+        return <div className='object overflow-auto'>{activity.object}</div>;
       case 'Note':
-        return <div className='object'>{activity.content}</div>;
+        return <div className='object font-mono overflow-auto'>{activity.content}</div>;
       default:
         return null;
     }
@@ -44,9 +44,9 @@ function Activity({ activity, nested = false }: { activity: IActivity; nested?: 
 
   return (
     <div
-      className={`my-2 p-0.5 ${
+      className={`my-2 overflow-hidden ${
         nested
-          ? 'my-0 bg-light-dark-mastodon-light-gray dark:bg-dark-mastodon-light-gray border-0 border-l-4 border-l-mastodon-primary border-solid'
+          ? 'my-0 bg-light-dark-mastodon-light-gray dark:bg-dark-mastodon-light-gray border-0 border-l-4 border-l-mastodon-primary border-solid p-0.5'
           : 'border border-solid border-light-mastodon-light-gray dark:border-dark-mastodon-light-gray p-1'
       }`}
     >
@@ -68,15 +68,20 @@ function LogEvent({ event }: { event: ILogEvent }) {
       }`}
     >
       {event.data.actor && (
-        <div className='dark:text-gray-400'>
-          <span className='italic'>From</span>
-          <span> {event.data.actor}</span>
+        <div>
+          <span className='italic dark:text-gray-400 text-gray-600'>From</span>
+          <span className='dark:text-gray-200 text-gray-800'> {event.data.actor}</span>
         </div>
       )}
-      <div className='italic dark:text-gray-400'>Sent to {event.path}</div>
+      <div>
+        <span className='italic dark:text-gray-400 text-gray-600'>Sent to</span>
+        <span className='dark:text-gray-200 text-gray-800'> {event.path}</span>
+      </div>
       <Activity activity={event.data} />
       <div className='flex flex-row items-center justify-between'>
-        <div className='time'>{new Date(event.timestamp).toLocaleTimeString()}</div>
+        <div className='text-gray-600 dark:text-gray-400'>
+          {new Date(event.timestamp).toLocaleTimeString()}
+        </div>
         <button
           className='border-0 p-0 bg-inherit underline hover:no-underline text-dark-mastodon-gray cursor-pointer'
           onClick={() => setShowSource(!showSource)}
@@ -85,7 +90,7 @@ function LogEvent({ event }: { event: ILogEvent }) {
         </button>
       </div>
       {showSource && (
-        <pre className='font-mono overflow-auto bg-dark-mastodon-light-gray p-1'>
+        <pre className='font-mono overflow-auto dark:bg-dark-mastodon-light-gray bg-light-mastodon-light-gray p-1'>
           {JSON.stringify(event.data, null, 2)}
         </pre>
       )}
