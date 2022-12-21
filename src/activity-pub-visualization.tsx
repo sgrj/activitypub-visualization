@@ -4,18 +4,6 @@ import './input.css';
 
 import type { ILogEvent, IActivity } from './types';
 
-const userRegex = /^https:\/\/([^/]+)\/users\/([^/]+)$/;
-
-function userName(uri: string) {
-  const match = uri.match(userRegex);
-
-  if (match !== null) {
-    return `${match[2]}@${match[1]}`;
-  } else {
-    return uri;
-  }
-}
-
 function ActivityDetails({ activity }: { activity: IActivity }) {
   const internal = () => {
     switch (activity.type) {
@@ -44,10 +32,10 @@ function Activity({ activity, nested = false }: { activity: IActivity; nested?: 
 
   return (
     <div
-      className={`my-2 overflow-hidden ${
+      className={`overflow-hidden ${
         nested
-          ? 'my-0 bg-light-dark-mastodon-light-gray dark:bg-dark-mastodon-light-gray border-0 border-l-4 border-l-mastodon-primary border-solid p-0.5'
-          : 'border border-solid border-light-mastodon-light-gray dark:border-dark-mastodon-light-gray p-1'
+          ? 'my-0 p-0.5 bg-light-dark-mastodon-light-gray dark:bg-dark-mastodon-light-gray border-0 border-l-4 border-l-mastodon-primary border-solid'
+          : 'my-2 p-1 border border-solid border-light-mastodon-light-gray dark:border-dark-mastodon-light-gray'
       }`}
     >
       <ActivityDetails activity={activity} />
