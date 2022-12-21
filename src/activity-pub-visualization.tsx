@@ -88,7 +88,7 @@ function LogEvent({ event }: { event: ILogEvent }) {
 
 export default function ActivityPubVisualization({ logs }: { logs: Array<ILogEvent> }) {
   return (
-    <div className='font-[sans-serif] text-[13px] flex flex-col'>
+    <div className='flex flex-col'>
       {logs
         .filter((event) => event.type !== 'keep-alive')
         .map((event) => (
