@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
 import ActivityPubVisualization from './activity-pub-visualization';
@@ -14,9 +14,20 @@ import logs from './logs.json';
 
 document.querySelector('body').style.margin = '0';
 
-ReactDOM.render(
-  <div className='bg-black dark'>
-    <ActivityPubVisualization logs={logs as Array<ILogEvent>} />
-  </div>,
-  elt
-);
+function Container() {
+  const [darkMode, setDarkMode] = useState(true);
+
+  return (
+    <div className={`${darkMode ? 'bg-black dark' : 'bg-[#eff3f5]'}`}>
+      <div
+        onClick={() => setDarkMode(!darkMode)}
+        className={`${darkMode ? 'text-white' : 'text-black'} cursor-pointer`}
+      >
+        Switch to {darkMode ? 'light' : 'dark'} mode
+      </div>
+      <ActivityPubVisualization logs={logs as Array<ILogEvent>} />
+    </div>
+  );
+}
+
+ReactDOM.render(<Container />, elt);
