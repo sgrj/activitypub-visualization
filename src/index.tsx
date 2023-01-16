@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
-import ActivityPubVisualization from './activitypub-visualization';
+import ActivityPubExplorer from './activitypub-explorer';
 
 import './input.css';
 
@@ -25,7 +25,7 @@ function Container() {
       >
         Switch to {darkMode ? 'light' : 'dark'} mode
       </div>
-      <ActivityPubVisualization logs={logs as Array<ILogEvent>} />
+      <ActivityPubExplorer />
     </div>
   );
 }
