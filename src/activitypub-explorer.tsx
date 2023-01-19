@@ -12,17 +12,18 @@ function JsonViewer({ json, onLinkClick }: { json: object; onLinkClick: (url: st
     return null;
   }
 
-  const keyQuoteClass = 'text-blue-300';
-  const punctuationClass = 'text-blue-100 pr-1';
-  const keyClass = 'text-blue-300';
+  const keyQuoteClass = 'dark:text-blue-300 text-blue-700';
+  const punctuationClass = 'dark:text-blue-100 text-blue-900 pr-1';
+  const keyClass = 'dark:text-blue-300 text-blue-700';
 
-  const valueQuoteClass = 'text-green-300';
-  const valueStringClass = 'text-green-300';
-  const valueNumberClass = 'text-green-300';
-  const valueBooleanClass = 'text-green-300';
-  const valueNullClass = 'text-green-300';
+  const valueQuoteClass = 'dark:text-green-300 text-green-700';
+  const valueStringClass = 'dark:text-green-300 text-green-700';
+  const valueNumberClass = 'dark:text-green-300 text-green-700';
+  const valueBooleanClass = 'dark:text-green-300 text-green-700';
+  const valueNullClass = 'dark:text-green-300 text-green-700';
 
-  const linkClass = 'text-green-300 hover:underline hover:text-blue-300 cursor-pointer';
+  const linkClass =
+    'dark:text-green-300 text-green-700 hover:underline dark:hover:text-blue-300 hover:text-blue-700 cursor-pointer';
 
   function Value({ value }: { value: any }) {
     if (typeof value === 'string') {
@@ -96,7 +97,7 @@ export default function ActivityPubExplorer({ initialValue = null }: { initialVa
     initialValue != null
       ? [
           {
-            url: null,
+            url: '',
             status: null,
             statusText: null,
             value: initialValue,
@@ -157,17 +158,16 @@ export default function ActivityPubExplorer({ initialValue = null }: { initialVa
   const { url, status, statusText, value, validJson } = data[data.length - 1] || {};
 
   return (
-    <div className='text-[#9baec8] bg-[#1f232b]'>
+    <div className='dark:text-[#9baec8] dark:bg-[#1f232b] bg-[#e6ebf0]'>
       <div className='p-4 flex items-center'>
         <button
           className={`w-6 h-6 p-0 m-2 bg-transparent border-0 ${
             data.length > 1
-              ? 'fill-dark-mastodon-gray cursor-pointer'
-              : 'fill-dark-mastodon-light-gray'
+              ? 'dark:fill-dark-mastodon-gray fill-[#606984] cursor-pointer'
+              : 'dark:fill-dark-mastodon-light-gray fill-light-mastodon-light-gray'
           }`}
           onClick={() => {
             if (data.length > 1) {
-              console.log(`setting search string to ${data[data.length - 2].url}`);
               setSearchString(data[data.length - 2].url || '');
               setData(data.slice(0, data.length - 1));
             }
@@ -177,20 +177,20 @@ export default function ActivityPubExplorer({ initialValue = null }: { initialVa
         </button>
         <button
           className={`w-6 h-6 p-0 m-2 bg-transparent border-0 ${
-            data.length > 0 && data[data.length - 1].url != null
-              ? 'fill-dark-mastodon-gray cursor-pointer'
-              : 'fill-dark-mastodon-light-gray'
+            url !== ''
+              ? 'dark:fill-dark-mastodon-gray fill-[#606984] cursor-pointer'
+              : 'dark:fill-dark-mastodon-light-gray fill-light-mastodon-light-gray'
           }`}
           onClick={() => {
-            if (data.length > 0 && data[data.length - 1].url != null) {
-              fetchJsonLd(data[data.length - 1].url, data.slice(0, data.length - 1));
+            if (url !== '') {
+              fetchJsonLd(url, data.slice(0, data.length - 1));
             }
           }}
         >
           <RefreshIcon />
         </button>
         <input
-          className='w-full box-border p-2.5 rounded outline-none border-solid text-base leading-[18px] border-[#393f4f] bg-[#282c37] text-[#9baec8]'
+          className='w-full box-border p-2.5 rounded outline-none border-solid text-base leading-[18px] dark:border-[#393f4f] border-[#c0cdd9] dark:bg-[#282c37] bg-[#d9e1e8] dark:text-[#9baec8] text-[#282c37]'
           type='text'
           value={searchString}
           spellCheck={false}
@@ -204,7 +204,7 @@ export default function ActivityPubExplorer({ initialValue = null }: { initialVa
         />
       </div>
       {data.length > 0 && (
-        <div className='font-mono bg-[#282c37] p-1 border-0 border-t border-solid border-t-[#393f4f]'>
+        <div className='font-mono dark:bg-[#282c37] bg-[#eff3f5] p-1 border-0 border-t border-solid dark:border-t-[#393f4f] border-t-[#c0cdd9]'>
           {loading ? (
             <LoadingIndicator />
           ) : validJson ? (
