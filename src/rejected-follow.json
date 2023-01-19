@@ -1,0 +1,31 @@
+[
+   {
+      "data" : {
+         "@context" : "https://www.w3.org/ns/activitystreams",
+         "actor" : "https://localhost.jambor.dev/users/admin",
+         "id" : "https://localhost.jambor.dev/77fe2f43-1d4c-4316-97c8-d71d6dd032cc",
+         "object" : "https://techhub.social/users/crepels",
+         "type" : "Follow"
+      },
+      "path" : "https://techhub.social/users/crepels/inbox",
+      "timestamp" : "2023-01-05T15:23:06Z",
+      "type" : "outbound"
+   },
+   {
+      "data" : {
+         "@context" : "https://www.w3.org/ns/activitystreams",
+         "actor" : "https://techhub.social/users/crepels",
+         "id" : "https://techhub.social/users/crepels#rejects/follows/678981",
+         "object" : {
+            "actor" : "https://localhost.jambor.dev/users/admin",
+            "id" : "https://localhost.jambor.dev/77fe2f43-1d4c-4316-97c8-d71d6dd032cc",
+            "object" : "https://techhub.social/users/crepels",
+            "type" : "Follow"
+         },
+         "type" : "Reject"
+      },
+      "path" : "https://localhost.jambor.dev/users/admin/inbox",
+      "timestamp" : "2023-01-05T15:23:17Z",
+      "type" : "inbound"
+   }
+]

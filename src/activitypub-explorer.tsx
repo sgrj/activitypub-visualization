@@ -4,6 +4,9 @@ import LoadingIndicator from './loading-indicator';
 
 import './input.css';
 
+import ArrowLeftIcon from './images/arrow-left.svg';
+import RefreshIcon from './images/refresh.svg';
+
 function JsonViewer({ json, onLinkClick }: { json: object; onLinkClick: (url: string) => void }) {
   if (json == null) {
     return null;
@@ -87,7 +90,7 @@ function JsonViewer({ json, onLinkClick }: { json: object; onLinkClick: (url: st
 }
 
 export default function ActivityPubExplorer({ initialValue = null }: { initialValue?: any }) {
-  const [searchString, setSearchString] = useState('https://mastodon.social/users/Gargron');
+  const [searchString, setSearchString] = useState('');
 
   const [data, setData] = useState(
     initialValue != null
@@ -105,8 +108,7 @@ export default function ActivityPubExplorer({ initialValue = null }: { initialVa
 
   const [loading, setLoading] = useState(false);
 
-  const fetchJsonLd = async (url: string, resetData = false) => {
-    const baseData = resetData ? [] : data;
+  const fetchJsonLd = async (url: string, baseData = data) => {
     setData([
       ...baseData,
       {
@@ -117,6 +119,7 @@ export default function ActivityPubExplorer({ initialValue = null }: { initialVa
         validJson: false,
       },
     ]);
+    setSearchString(url);
 
     setLoading(true);
 
@@ -155,7 +158,37 @@ export default function ActivityPubExplorer({ initialValue = null }: { initialVa
 
   return (
     <div className='text-[#9baec8] bg-[#1f232b]'>
-      <div className='p-4'>
+      <div className='p-4 flex items-center'>
+        <button
+          className={`w-6 h-6 p-0 m-2 bg-transparent border-0 ${
+            data.length > 1
+              ? 'fill-dark-mastodon-gray cursor-pointer'
+              : 'fill-dark-mastodon-light-gray'
+          }`}
+          onClick={() => {
+            if (data.length > 1) {
+              console.log(`setting search string to ${data[data.length - 2].url}`);
+              setSearchString(data[data.length - 2].url || '');
+              setData(data.slice(0, data.length - 1));
+            }
+          }}
+        >
+          <ArrowLeftIcon />
+        </button>
+        <button
+          className={`w-6 h-6 p-0 m-2 bg-transparent border-0 ${
+            data.length > 0 && data[data.length - 1].url != null
+              ? 'fill-dark-mastodon-gray cursor-pointer'
+              : 'fill-dark-mastodon-light-gray'
+          }`}
+          onClick={() => {
+            if (data.length > 0 && data[data.length - 1].url != null) {
+              fetchJsonLd(data[data.length - 1].url, data.slice(0, data.length - 1));
+            }
+          }}
+        >
+          <RefreshIcon />
+        </button>
         <input
           className='w-full box-border p-2.5 rounded outline-none border-solid text-base leading-[18px] border-[#393f4f] bg-[#282c37] text-[#9baec8]'
           type='text'
@@ -164,32 +197,11 @@ export default function ActivityPubExplorer({ initialValue = null }: { initialVa
           onChange={(event) => setSearchString(event.target.value)}
           onKeyPress={(event) => {
             if (event.key === 'Enter') {
-              fetchJsonLd(searchString, true);
+              fetchJsonLd(searchString);
             }
           }}
           placeholder='Enter an ActivityPub url like https://mastodon.social/users/crepels'
         />
-      </div>
-      <div className='mx-2 mt-0 mb-4'>
-        {url != null && (
-          <div>
-            <span className='font-semibold'>{loading ? 'Fetching' : 'Fetched'} data for </span>
-            <span>{url}</span>
-          </div>
-        )}
-        {status != null && (
-          <div>
-            <span className='font-semibold'>Response status </span>
-            <span className='font-mono'>
-              {status} {statusText}
-            </span>
-          </div>
-        )}
-        {data.length > 1 && (
-          <div>
-            <button onClick={() => setData(data.slice(0, data.length - 1))}>back</button>
-          </div>
-        )}
       </div>
       {data.length > 0 && (
         <div className='font-mono bg-[#282c37] p-1 border-0 border-t border-solid border-t-[#393f4f]'>
@@ -198,7 +210,9 @@ export default function ActivityPubExplorer({ initialValue = null }: { initialVa
           ) : validJson ? (
             <JsonViewer json={value} onLinkClick={(url) => fetchJsonLd(url)} />
           ) : (
-            <div>The response did not return valid JSON</div>
+            <div>
+              The response did not return valid JSON (Response status {status} {statusText})
+            </div>
           )}
         </div>
       )}

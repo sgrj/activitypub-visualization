@@ -28,10 +28,10 @@ function Container() {
       >
         Switch to {darkMode ? 'light' : 'dark'} mode
       </div>
+      {<ActivityPubExplorer initialValue={JSON.parse(jsonString)} />}
       {
-        // <ActivityPubExplorer initialValue={JSON.parse(jsonString)} />
+        // <ActivityPubExplorer />
       }
-      <ActivityPubExplorer />
     </div>
   );
 }
