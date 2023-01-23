@@ -3,7 +3,7 @@ var path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.tsx',
+  entry: './src/playground.tsx',
   module: {},
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],

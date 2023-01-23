@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'production',
-  entry: './src/activitypub-visualization.tsx',
+  entry: './src/index.tsx',
   module: {},
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
