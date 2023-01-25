@@ -14,7 +14,6 @@ module.exports = {
     library: {
       name: 'activity_pub_visualization',
       type: 'umd',
-      export: 'default',
     },
   },
   plugins: [new MiniCssExtractPlugin({})],
