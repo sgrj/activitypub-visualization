@@ -15,7 +15,7 @@ document.querySelector('body').appendChild(elt);
 document.querySelector('body').style.margin = '0';
 
 function Container() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   return (
     <div className={`font-[sans-serif] text-[13px] ${darkMode ? 'bg-black dark' : 'bg-[#eff3f5]'}`}>
@@ -26,8 +26,10 @@ function Container() {
         Switch to {darkMode ? 'light' : 'dark'} mode
       </div>
 
-      {/*<ActivityPubVisualization logs={logs as Array<ILogEvent>} /> */}
-      {<ActivityPubExplorer initialValue={userEntity} />}
+      {<ActivityPubVisualization logs={logs as Array<ILogEvent>} />}
+      {
+        //<ActivityPubExplorer initialValue={userEntity} />
+      }
       {
         // <ActivityPubExplorer />
       }

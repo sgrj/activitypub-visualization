@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import JsonViewer from './json-viewer';
+
 import './input.css';
 
 import type { ILogEvent, IActivity } from './types';
@@ -78,9 +80,9 @@ function LogEvent({ event }: { event: ILogEvent }) {
         </button>
       </div>
       {showSource && (
-        <pre className='font-mono overflow-auto dark:bg-dark-mastodon-light-gray bg-light-mastodon-light-gray p-1'>
-          {JSON.stringify(event.data, null, 2)}
-        </pre>
+        <div className='overflow-auto'>
+          <JsonViewer json={event.data} clickableLinks={false} />
+        </div>
       )}
     </div>
   );
