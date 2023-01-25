@@ -48,7 +48,15 @@ function Activity({ activity, nested = false }: { activity: IActivity; nested?: 
   );
 }
 
-function LogEvent({ event }: { event: ILogEvent }) {
+function LogEvent({
+  event,
+  showExplorerLink = false,
+  onExplorerLinkClick,
+}: {
+  event: ILogEvent;
+  showExplorerLink?: boolean;
+  onExplorerLinkClick?: (json: any) => void;
+}) {
   const [showSource, setShowSource] = useState(false);
 
   return (
@@ -68,16 +76,26 @@ function LogEvent({ event }: { event: ILogEvent }) {
         <span className='dark:text-gray-200 text-gray-800'> {event.path}</span>
       </div>
       <Activity activity={event.data} />
-      <div className='flex flex-row items-center justify-between'>
+      <div className='flex flex-row items-start justify-between'>
         <div className='text-gray-600 dark:text-gray-400'>
           {new Date(event.timestamp).toLocaleTimeString()}
         </div>
-        <button
-          className='border-0 p-0 bg-inherit underline hover:no-underline text-dark-mastodon-gray cursor-pointer'
-          onClick={() => setShowSource(!showSource)}
-        >
-          {showSource ? 'hide' : 'show'} source
-        </button>
+        <div className='flex flex-col items-end'>
+          <button
+            className='border-0 p-0 bg-inherit underline hover:no-underline text-dark-mastodon-gray cursor-pointer'
+            onClick={() => setShowSource(!showSource)}
+          >
+            {showSource ? 'hide' : 'show'} source
+          </button>
+          {showSource && showExplorerLink && (
+            <a
+              className='border-0 p-0 bg-inherit underline hover:no-underline text-dark-mastodon-gray cursor-pointer'
+              onClick={() => onExplorerLinkClick(event.data)}
+            >
+              open in explorer
+            </a>
+          )}
+        </div>
       </div>
       {showSource && (
         <div className='overflow-auto'>
@@ -88,13 +106,26 @@ function LogEvent({ event }: { event: ILogEvent }) {
   );
 }
 
-export default function ActivityPubVisualization({ logs }: { logs: Array<ILogEvent> }) {
+export default function ActivityPubVisualization({
+  logs,
+  showExplorerLink = false,
+  onExplorerLinkClick,
+}: {
+  logs: Array<ILogEvent>;
+  showExplorerLink?: boolean;
+  onExplorerLinkClick?: (json: any) => void;
+}) {
   return (
     <div className='flex flex-col'>
       {logs
         .filter((event) => event.type !== 'keep-alive')
         .map((event) => (
-          <LogEvent key={event.data.id} event={event} />
+          <LogEvent
+            key={event.data.id}
+            event={event}
+            showExplorerLink={showExplorerLink}
+            onExplorerLinkClick={onExplorerLinkClick}
+          />
         ))}
     </div>
   );

@@ -26,7 +26,13 @@ function Container() {
         Switch to {darkMode ? 'light' : 'dark'} mode
       </div>
 
-      {<ActivityPubVisualization logs={logs as Array<ILogEvent>} />}
+      {
+        <ActivityPubVisualization
+          logs={logs as Array<ILogEvent>}
+          showExplorerLink={true}
+          onExplorerLinkClick={(data) => console.log(data)}
+        />
+      }
       {
         //<ActivityPubExplorer initialValue={userEntity} />
       }
