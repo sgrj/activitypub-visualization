@@ -85,7 +85,7 @@ export default function ActivityPubExplorer({
     }
   };
 
-  const { url, status, statusText, value, validJson } = data[data.length - 1] || {};
+  const { url = '', status, statusText, value, validJson } = data[data.length - 1] || {};
 
   return (
     <div className='dark:text-[#9baec8] dark:bg-[#1f232b] bg-[#e6ebf0]'>
