@@ -130,7 +130,7 @@ export default function ActivityPubExplorer({
               fetchJsonLd(searchString);
             }
           }}
-          placeholder=' an ActivityPub url like https://mastodon.social/users/crepels'
+          placeholder='Enter an ActivityPub url'
         />
       </div>
       {data.length > 0 && (
