@@ -50,10 +50,14 @@ function Activity({ activity, nested = false }: { activity: IActivity; nested?: 
 
 function LogEvent({
   event,
+  clickableLinks = false,
+  onLinkClick,
   showExplorerLink = false,
   onExplorerLinkClick,
 }: {
   event: ILogEvent;
+  clickableLinks?: boolean;
+  onLinkClick?: (url: string) => void;
   showExplorerLink?: boolean;
   onExplorerLinkClick?: (json: any) => void;
 }) {
@@ -99,7 +103,7 @@ function LogEvent({
       </div>
       {showSource && (
         <div className='overflow-auto'>
-          <JsonViewer json={event.data} clickableLinks={false} />
+          <JsonViewer json={event.data} clickableLinks={clickableLinks} onLinkClick={onLinkClick} />
         </div>
       )}
     </div>
@@ -108,10 +112,14 @@ function LogEvent({
 
 export default function ActivityPubVisualization({
   logs,
+  clickableLinks = false,
+  onLinkClick,
   showExplorerLink = false,
   onExplorerLinkClick,
 }: {
   logs: Array<ILogEvent>;
+  clickableLinks?: boolean;
+  onLinkClick?: (url: string) => void;
   showExplorerLink?: boolean;
   onExplorerLinkClick?: (json: any) => void;
 }) {
@@ -123,6 +131,8 @@ export default function ActivityPubVisualization({
           <LogEvent
             key={event.data.id}
             event={event}
+            clickableLinks={clickableLinks}
+            onLinkClick={onLinkClick}
             showExplorerLink={showExplorerLink}
             onExplorerLinkClick={onExplorerLinkClick}
           />

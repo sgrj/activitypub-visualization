@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import LoadingIndicator from './loading-indicator';
 import JsonViewer from './json-viewer';
@@ -8,7 +8,13 @@ import './input.css';
 import ArrowLeftIcon from './images/arrow-left.svg';
 import RefreshIcon from './images/refresh.svg';
 
-export default function ActivityPubExplorer({ initialValue = null }: { initialValue?: any }) {
+export default function ActivityPubExplorer({
+  initialValue = null,
+  initialUrl = '',
+}: {
+  initialValue?: any;
+  initialUrl?: string;
+}) {
   const [searchString, setSearchString] = useState('');
 
   const [data, setData] = useState(
@@ -26,6 +32,12 @@ export default function ActivityPubExplorer({ initialValue = null }: { initialVa
   );
 
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (initialUrl != null) {
+      fetchJsonLd(initialUrl);
+    }
+  }, []);
 
   const fetchJsonLd = async (url: string, baseData = data) => {
     setData([
