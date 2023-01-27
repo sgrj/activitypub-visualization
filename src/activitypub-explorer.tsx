@@ -134,7 +134,7 @@ export default function ActivityPubExplorer({
         />
       </div>
       {data.length > 0 && (
-        <div className='p-1 border-0 border-t border-solid dark:border-t-[#393f4f] border-t-[#c0cdd9]'>
+        <div className='border-0 border-t border-solid dark:border-t-[#393f4f] border-t-[#c0cdd9]'>
           {loading ? (
             <LoadingIndicator />
           ) : validJson ? (
