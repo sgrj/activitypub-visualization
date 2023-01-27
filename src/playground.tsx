@@ -27,15 +27,13 @@ function Container() {
       </div>
 
       {
-        <ActivityPubVisualization
-          logs={logs as Array<ILogEvent>}
-          showExplorerLink={true}
-          onExplorerLinkClick={(data) => console.log(data)}
-        />
+        // <ActivityPubVisualization
+        //   logs={logs as Array<ILogEvent>}
+        //   showExplorerLink={true}
+        //   onExplorerLinkClick={(data) => console.log(data)}
+        // />
       }
-      {
-        //<ActivityPubExplorer initialValue={userEntity} />
-      }
+      {<ActivityPubExplorer initialValue={userEntity} />}
       {
         // <ActivityPubExplorer />
       }

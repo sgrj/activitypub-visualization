@@ -34,7 +34,7 @@ export default function ActivityPubExplorer({
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (initialUrl != null) {
+    if (initialUrl != '') {
       fetchJsonLd(initialUrl);
     }
   }, []);
