@@ -104,7 +104,7 @@ export default function ActivityPubExplorer({
 
   const ExplanationBox = () => (
     <div className='relative'>
-      <div className='absolute rounded p-2 left-[-200px] w-[400px] top-[10px] bg-white'>
+      <div className='absolute shadow-xl rounded p-2 text-[#444b5d] left-[-200px] w-[400px] top-[10px] bg-white'>
         <div className='uppercase font-medium'>Examples</div>
 
         <div className='my-2'>
