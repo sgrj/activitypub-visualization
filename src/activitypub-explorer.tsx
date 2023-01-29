@@ -120,9 +120,9 @@ export default function ActivityPubExplorer({
           to see the followers collection of @crepels@mastodon.social.
         </div>
         <div className='mt-2'>
-          Full mentions like{' '}
-          <span className='font-medium text-black'>@crepels@mastodon.social</span> are translated to
-          the corresponding webfinger url.
+          Enter a full mention like{' '}
+          <span className='font-medium text-black'>@crepels@mastodon.social</span>; it will be
+          translated to the corresponding webfinger URL.
         </div>
       </div>
     </div>
