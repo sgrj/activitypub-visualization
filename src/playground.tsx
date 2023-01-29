@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { ActivityPubExplorer, ActivityPubVisualization } from './index';
 
 import './input.css';
+import './font.css';
 
 import type { ILogEvent } from './types';
 
@@ -18,7 +19,7 @@ function Container() {
   const [darkMode, setDarkMode] = useState(true);
 
   return (
-    <div className={`font-[sans-serif] text-[13px] ${darkMode ? 'bg-black dark' : 'bg-[#eff3f5]'}`}>
+    <div className={`font-[Roboto] text-[13px] ${darkMode ? 'bg-black dark' : 'bg-[#eff3f5]'}`}>
       <div
         onClick={() => setDarkMode(!darkMode)}
         className={`${darkMode ? 'text-white' : 'text-black'} cursor-pointer`}
