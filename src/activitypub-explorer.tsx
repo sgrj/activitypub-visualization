@@ -176,7 +176,7 @@ export default function ActivityPubExplorer({
             }}
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
-            placeholder='Enter an ActivityPub url'
+            placeholder='Enter an ActivityPub URL'
           />
           {searchString === '' && focused && <ExplanationBox />}
         </div>
