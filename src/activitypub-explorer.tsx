@@ -104,7 +104,7 @@ export default function ActivityPubExplorer({
 
   const ExplanationBox = () => (
     <div className='relative'>
-      <div className='absolute shadow-xl rounded p-2 text-[#444b5d] left-[-200px] w-[400px] top-[10px] bg-white'>
+      <div className='absolute shadow-xl rounded p-2 text-mastodon-gray-700 left-[-200px] w-[400px] top-[10px] bg-white'>
         <div className='uppercase font-medium'>Examples</div>
 
         <div className='my-2'>
@@ -131,13 +131,13 @@ export default function ActivityPubExplorer({
   const { url = '', status, statusText, value, validJson } = data[data.length - 1] || {};
 
   return (
-    <div className='dark:text-[#9baec8] dark:bg-[#1f232b] bg-[#e6ebf0]'>
+    <div className='dark:text-mastodon-gray-500 dark:bg-mastodon-gray-1000 bg-mastodon-gray-200'>
       <div className='p-4 flex items-center'>
         <button
           className={`w-6 h-6 p-0 m-2 ml-0 bg-transparent border-0 ${
             data.length > 1
-              ? 'dark:fill-dark-mastodon-gray fill-[#606984] cursor-pointer'
-              : 'dark:fill-dark-mastodon-light-gray fill-light-mastodon-light-gray'
+              ? 'fill-mastodon-gray-600 cursor-pointer'
+              : 'dark:fill-mastodon-gray-800 fill-mastodon-gray-400'
           }`}
           onClick={() => {
             if (data.length > 1) {
@@ -151,8 +151,8 @@ export default function ActivityPubExplorer({
         <button
           className={`w-6 h-6 p-0 m-2 bg-transparent border-0 ${
             url !== ''
-              ? 'dark:fill-dark-mastodon-gray fill-[#606984] cursor-pointer'
-              : 'dark:fill-dark-mastodon-light-gray fill-light-mastodon-light-gray'
+              ? 'fill-mastodon-gray-600 cursor-pointer'
+              : 'dark:fill-mastodon-gray-800 fill-mastodon-gray-400'
           }`}
           onClick={() => {
             if (url !== '') {
@@ -164,7 +164,22 @@ export default function ActivityPubExplorer({
         </button>
         <div className='flex flex-col items-center w-full'>
           <input
-            className='w-full box-border p-2.5 rounded outline-none border-solid text-base leading-[18px] dark:border-[#393f4f] border-[#c0cdd9] dark:bg-[#282c37] bg-[#d9e1e8] dark:text-[#9baec8] text-[#282c37]'
+            className={[
+              'w-full',
+              'box-border',
+              'p-2.5',
+              'rounded',
+              'outline-none',
+              'border-solid',
+              'text-base',
+              'leading-[18px]',
+              'dark:border-mastodon-gray-800',
+              'border-mastodon-gray-500',
+              'dark:bg-mastodon-gray-900',
+              'bg-mastodon-gray-300',
+              'dark:text-mastodon-gray-500',
+              'text-mastodon-gray-900',
+            ].join(' ')}
             type='text'
             value={searchString}
             spellCheck={false}
@@ -182,7 +197,7 @@ export default function ActivityPubExplorer({
         </div>
       </div>
       {data.length > 0 && (
-        <div className='border-0 border-t border-solid dark:border-t-[#393f4f] border-t-[#c0cdd9]'>
+        <div className='border-0 border-t border-solid dark:border-t-mastodon-gray-800 border-t-mastodon-gray-500'>
           {loading ? (
             <LoadingIndicator />
           ) : validJson ? (

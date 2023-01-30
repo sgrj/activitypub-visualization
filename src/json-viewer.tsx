@@ -89,7 +89,7 @@ export default function JsonViewer({
   }
 
   return (
-    <div className='font-mono dark:bg-[#282c37] bg-[#eff3f5]'>
+    <div className='font-mono dark:bg-mastodon-gray-900 bg-mastodon-gray-100'>
       <Value value={json} />
     </div>
   );

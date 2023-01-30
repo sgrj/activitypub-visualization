@@ -36,8 +36,8 @@ function Activity({ activity, nested = false }: { activity: IActivity; nested?: 
     <div
       className={`overflow-hidden ${
         nested
-          ? 'my-0 p-0.5 bg-light-dark-mastodon-light-gray dark:bg-dark-mastodon-light-gray border-0 border-l-4 border-l-mastodon-primary border-solid'
-          : 'my-2 p-1 border border-solid border-light-mastodon-light-gray dark:border-dark-mastodon-light-gray'
+          ? 'my-0 p-0.5 bg-mastodon-gray-200 dark:bg-mastodon-gray-800 border-0 border-l-4 border-l-mastodon-primary border-solid'
+          : 'my-2 p-1 border border-solid border-mastodon-gray-400 dark:border-mastodon-gray-800'
       }`}
     >
       <ActivityDetails activity={activity} />
@@ -65,7 +65,7 @@ function LogEvent({
 
   return (
     <div
-      className={`bg-white text-black dark:bg-dark-mastodon-dark-gray dark:text-white flex flex-col p-1 m-1 rounded rounded-tl-none w-4/5 ${
+      className={`bg-white text-black dark:bg-mastodon-gray-900 dark:text-white flex flex-col p-1 m-1 rounded rounded-tl-none w-4/5 ${
         event.type == 'inbound' ? 'bg-white' : 'bg-white self-end'
       }`}
     >
@@ -86,14 +86,14 @@ function LogEvent({
         </div>
         <div className='flex flex-col items-end'>
           <button
-            className='border-0 p-0 bg-inherit underline hover:no-underline text-dark-mastodon-gray cursor-pointer'
+            className='border-0 p-0 bg-inherit underline hover:no-underline text-mastodon-gray-600 cursor-pointer'
             onClick={() => setShowSource(!showSource)}
           >
             {showSource ? 'hide' : 'show'} source
           </button>
           {showSource && showExplorerLink && (
             <a
-              className='border-0 p-0 bg-inherit underline hover:no-underline text-dark-mastodon-gray cursor-pointer'
+              className='border-0 p-0 bg-inherit underline hover:no-underline text-mastodon-gray-600 cursor-pointer'
               onClick={() => onExplorerLinkClick(event.data)}
             >
               open in explorer

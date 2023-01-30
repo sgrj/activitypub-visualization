@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 
 import { ActivityPubExplorer, ActivityPubVisualization } from './index';
 
+import Colors from './colors';
+
 import './input.css';
 import './font.css';
 
@@ -21,7 +23,7 @@ function Container() {
   return (
     <div
       className={`h-full font-[Roboto] text-[13px] ${
-        darkMode ? 'bg-[#191b22] dark' : 'bg-[#eff3f5]'
+        darkMode ? 'bg-[#191b22] dark' : 'bg-mastodon-gray-100'
       }`}
     >
       <div
@@ -32,13 +34,18 @@ function Container() {
       </div>
 
       {
-        // <ActivityPubVisualization
-        //   logs={logs as Array<ILogEvent>}
-        //   showExplorerLink={true}
-        //   onExplorerLinkClick={(data) => console.log(data)}
-        // />
+        <ActivityPubVisualization
+          logs={logs as Array<ILogEvent>}
+          showExplorerLink={true}
+          onExplorerLinkClick={(data) => console.log(data)}
+        />
       }
-      {<ActivityPubExplorer initialValue={userEntity} />}
+      {
+        // <ActivityPubExplorer initialValue={userEntity} />
+      }
+      {
+        // <Colors />
+      }
       {
         // <ActivityPubExplorer />
       }
