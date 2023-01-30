@@ -134,7 +134,7 @@ export default function ActivityPubExplorer({
     <div className='dark:text-[#9baec8] dark:bg-[#1f232b] bg-[#e6ebf0]'>
       <div className='p-4 flex items-center'>
         <button
-          className={`w-6 h-6 p-0 m-2 bg-transparent border-0 ${
+          className={`w-6 h-6 p-0 m-2 ml-0 bg-transparent border-0 ${
             data.length > 1
               ? 'dark:fill-dark-mastodon-gray fill-[#606984] cursor-pointer'
               : 'dark:fill-dark-mastodon-light-gray fill-light-mastodon-light-gray'
