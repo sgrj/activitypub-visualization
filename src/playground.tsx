@@ -19,7 +19,11 @@ function Container() {
   const [darkMode, setDarkMode] = useState(true);
 
   return (
-    <div className={`font-[Roboto] text-[13px] ${darkMode ? 'bg-black dark' : 'bg-[#eff3f5]'}`}>
+    <div
+      className={`h-full font-[Roboto] text-[13px] ${
+        darkMode ? 'bg-[#191b22] dark' : 'bg-[#eff3f5]'
+      }`}
+    >
       <div
         onClick={() => setDarkMode(!darkMode)}
         className={`${darkMode ? 'text-white' : 'text-black'} cursor-pointer`}
