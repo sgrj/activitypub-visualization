@@ -11,9 +11,11 @@ import RefreshIcon from './images/refresh.svg';
 const fullMentionRegex = /^@(?<username>[^@]+)@(?<domain>[^@]+)$/;
 
 export default function ActivityPubExplorer({
+  fetchMethod,
   initialValue = null,
   initialUrl = '',
 }: {
+  fetchMethod: (url: string) => Promise<Response>;
   initialValue?: any;
   initialUrl?: string;
 }) {
@@ -71,9 +73,7 @@ export default function ActivityPubExplorer({
 
     setLoading(true);
 
-    const response = await fetch(
-      'http://localhost:3000/api/v1/json_ld?' + new URLSearchParams({ url }).toString()
-    );
+    const response = await fetchMethod(url);
 
     setLoading(false);
 
