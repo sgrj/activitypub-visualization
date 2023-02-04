@@ -8,7 +8,8 @@
   "scripts": {
     "prepublish": "npm run build",
     "start": "webpack-dev-server --config webpack.config.dev.js",
-    "build": "webpack"
+    "build": "webpack",
+    "build-blog": "webpack --config webpack.config.blog.js"
   },
   "author": "",
   "license": "MIT",

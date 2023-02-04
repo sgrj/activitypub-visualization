@@ -8,6 +8,7 @@ export interface IActivity {
 
 export interface ILogEvent {
   timestamp: string;
+  sender: string;
   type: 'inbound' | 'outbound' | 'keep-alive';
   path: string;
   data: IActivity;

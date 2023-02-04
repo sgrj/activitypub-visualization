@@ -72,7 +72,7 @@ function LogEvent({
       {event.data.actor && (
         <div>
           <span className='italic dark:text-gray-400 text-gray-600'>From</span>
-          <span className='dark:text-gray-200 text-gray-800'> {event.data.actor}</span>
+          <span className='dark:text-gray-200 text-gray-800'> {event.sender}</span>
         </div>
       )}
       <div>
@@ -102,9 +102,7 @@ function LogEvent({
         </div>
       </div>
       {showSource && (
-        <div className='overflow-auto'>
-          <JsonViewer json={event.data} clickableLinks={clickableLinks} onLinkClick={onLinkClick} />
-        </div>
+        <JsonViewer json={event.data} clickableLinks={clickableLinks} onLinkClick={onLinkClick} />
       )}
     </div>
   );
