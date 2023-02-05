@@ -1,9 +1,10 @@
 export interface IActivity {
   id: string;
   type: string;
-  actor: string;
+  actor?: string;
   object?: string | IActivity;
   content?: string;
+  name?: string;
 }
 
 export interface ILogEvent {

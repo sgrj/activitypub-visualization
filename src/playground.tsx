@@ -10,7 +10,8 @@ import './font.css';
 
 import type { ILogEvent } from './types';
 
-import logs from './logs.json';
+// import logs from './logs.json';
+import logs from './question-with-votes.json';
 import userEntity from './user-entity.json';
 
 const elt = document.createElement('div');
@@ -34,19 +35,19 @@ function Container() {
       </div>
 
       {
-        // <ActivityPubVisualization
-        //   logs={logs as Array<ILogEvent>}
-        //   showExplorerLink={true}
-        //   onExplorerLinkClick={(data) => console.log(data)}
-        // />
+        <ActivityPubVisualization
+          logs={logs as Array<ILogEvent>}
+          showExplorerLink={true}
+          onExplorerLinkClick={(data) => console.log(data)}
+        />
       }
       {
-        <ActivityPubExplorer
-          fetchMethod={async (url) =>
-            fetch('http://localhost:3000/api/v1/json_ld?' + new URLSearchParams({ url }).toString())
-          }
-          initialValue={userEntity}
-        />
+        // <ActivityPubExplorer
+        //   fetchMethod={async (url) =>
+        //     fetch('http://localhost:3000/api/v1/json_ld?' + new URLSearchParams({ url }).toString())
+        //   }
+        //   initialValue={userEntity}
+        // />
       }
       {
         // <Colors />

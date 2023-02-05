@@ -11,9 +11,13 @@ function ActivityDetails({ activity }: { activity: IActivity }) {
     switch (activity.type) {
       case 'Follow':
       case 'Like':
+      case 'Block':
         return <div className='object overflow-auto'>{activity.object}</div>;
       case 'Note':
-        return <div className='object font-mono overflow-auto'>{activity.content}</div>;
+      case 'Question':
+        return (
+          <div className='object font-mono overflow-auto'>{activity.content || activity.name}</div>
+        );
       default:
         return null;
     }
