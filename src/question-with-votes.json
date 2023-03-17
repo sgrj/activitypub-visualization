@@ -1,0 +1,400 @@
+[
+  {
+    "type": "outbound",
+    "sender": "https://localhost.jambor.dev/users/dafrita_awdreniel",
+    "path": "https://techhub.social/inbox",
+    "data": {
+      "@context": [
+        "https://www.w3.org/ns/activitystreams",
+        {
+          "ostatus": "http://ostatus.org#",
+          "atomUri": "ostatus:atomUri",
+          "inReplyToAtomUri": "ostatus:inReplyToAtomUri",
+          "conversation": "ostatus:conversation",
+          "sensitive": "as:sensitive",
+          "toot": "http://joinmastodon.org/ns#",
+          "votersCount": "toot:votersCount"
+        }
+      ],
+      "id": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632/activity",
+      "type": "Create",
+      "actor": "https://localhost.jambor.dev/users/dafrita_awdreniel",
+      "published": "2023-02-04T20:36:31Z",
+      "to": [
+        "https://www.w3.org/ns/activitystreams#Public"
+      ],
+      "cc": [
+        "https://localhost.jambor.dev/users/dafrita_awdreniel/followers"
+      ],
+      "object": {
+        "id": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632",
+        "type": "Question",
+        "summary": null,
+        "inReplyTo": null,
+        "published": "2023-02-04T20:36:31Z",
+        "url": "https://localhost.jambor.dev/@dafrita_awdreniel/109808385499373632",
+        "attributedTo": "https://localhost.jambor.dev/users/dafrita_awdreniel",
+        "to": [
+          "https://www.w3.org/ns/activitystreams#Public"
+        ],
+        "cc": [
+          "https://localhost.jambor.dev/users/dafrita_awdreniel/followers"
+        ],
+        "sensitive": false,
+        "atomUri": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632",
+        "inReplyToAtomUri": null,
+        "conversation": "tag:localhost.jambor.dev,2023-02-04:objectId=64:objectType=Conversation",
+        "content": "<p>a second poll</p>",
+        "contentMap": {
+          "en": "<p>a second poll</p>"
+        },
+        "endTime": "2023-02-05T02:36:31Z",
+        "votersCount": 0,
+        "attachment": [],
+        "tag": [],
+        "replies": {
+          "id": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632/replies",
+          "type": "Collection",
+          "first": {
+            "type": "CollectionPage",
+            "next": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632/replies?only_other_accounts=true&page=true",
+            "partOf": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632/replies",
+            "items": []
+          }
+        },
+        "oneOf": [
+          {
+            "type": "Note",
+            "name": "first choice",
+            "replies": {
+              "type": "Collection",
+              "totalItems": 0
+            }
+          },
+          {
+            "type": "Note",
+            "name": "second choice",
+            "replies": {
+              "type": "Collection",
+              "totalItems": 0
+            }
+          }
+        ]
+      },
+      "signature": {
+        "type": "RsaSignature2017",
+        "creator": "https://localhost.jambor.dev/users/dafrita_awdreniel#main-key",
+        "created": "2023-02-04T20:36:31Z",
+        "signatureValue": "RpJTXCPOOWUAUS5UXDyqxAbQPVnTak61VjUhS7jGYGmULQ+A1/nkjCKkD2aRqt+LuCuzeQNZ+pRLNyYyioqygTogWyd07Aqgzmqcxn5X0i7HVzJqWWEqEv5/ciiZJtWhAKp94QHlU4bLaPy0FJFk5GuQT1mmyxkmoLxsNe+87myQo5RXCb9fc05XCfU93LDnDImL0oMugroFb58oqlhbbEHpFMp86w+rqtlyOIGxH7H4mtqN2s7p1BlMGBKXNFXU4B0c4EdR78LYK2rIm8Odr9/NaS6NpRIXqIFPMAIsy2VHc9LgmmZL4CvrnDQfIt1Kbo40ilWE1z2FtSEvpU3QHw=="
+      }
+    },
+    "timestamp": "2023-02-04T20:36:31Z"
+  },
+  {
+    "type": "outbound",
+    "sender": "https://localhost.jambor.dev/users/dafrita_awdreniel",
+    "path": "https://mastodon.social/inbox",
+    "data": {
+      "@context": [
+        "https://www.w3.org/ns/activitystreams",
+        {
+          "ostatus": "http://ostatus.org#",
+          "atomUri": "ostatus:atomUri",
+          "inReplyToAtomUri": "ostatus:inReplyToAtomUri",
+          "conversation": "ostatus:conversation",
+          "sensitive": "as:sensitive",
+          "toot": "http://joinmastodon.org/ns#",
+          "votersCount": "toot:votersCount"
+        }
+      ],
+      "id": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632/activity",
+      "type": "Create",
+      "actor": "https://localhost.jambor.dev/users/dafrita_awdreniel",
+      "published": "2023-02-04T20:36:31Z",
+      "to": [
+        "https://www.w3.org/ns/activitystreams#Public"
+      ],
+      "cc": [
+        "https://localhost.jambor.dev/users/dafrita_awdreniel/followers"
+      ],
+      "object": {
+        "id": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632",
+        "type": "Question",
+        "summary": null,
+        "inReplyTo": null,
+        "published": "2023-02-04T20:36:31Z",
+        "url": "https://localhost.jambor.dev/@dafrita_awdreniel/109808385499373632",
+        "attributedTo": "https://localhost.jambor.dev/users/dafrita_awdreniel",
+        "to": [
+          "https://www.w3.org/ns/activitystreams#Public"
+        ],
+        "cc": [
+          "https://localhost.jambor.dev/users/dafrita_awdreniel/followers"
+        ],
+        "sensitive": false,
+        "atomUri": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632",
+        "inReplyToAtomUri": null,
+        "conversation": "tag:localhost.jambor.dev,2023-02-04:objectId=64:objectType=Conversation",
+        "content": "<p>a second poll</p>",
+        "contentMap": {
+          "en": "<p>a second poll</p>"
+        },
+        "endTime": "2023-02-05T02:36:31Z",
+        "votersCount": 0,
+        "attachment": [],
+        "tag": [],
+        "replies": {
+          "id": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632/replies",
+          "type": "Collection",
+          "first": {
+            "type": "CollectionPage",
+            "next": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632/replies?only_other_accounts=true&page=true",
+            "partOf": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632/replies",
+            "items": []
+          }
+        },
+        "oneOf": [
+          {
+            "type": "Note",
+            "name": "first choice",
+            "replies": {
+              "type": "Collection",
+              "totalItems": 0
+            }
+          },
+          {
+            "type": "Note",
+            "name": "second choice",
+            "replies": {
+              "type": "Collection",
+              "totalItems": 0
+            }
+          }
+        ]
+      },
+      "signature": {
+        "type": "RsaSignature2017",
+        "creator": "https://localhost.jambor.dev/users/dafrita_awdreniel#main-key",
+        "created": "2023-02-04T20:36:31Z",
+        "signatureValue": "RpJTXCPOOWUAUS5UXDyqxAbQPVnTak61VjUhS7jGYGmULQ+A1/nkjCKkD2aRqt+LuCuzeQNZ+pRLNyYyioqygTogWyd07Aqgzmqcxn5X0i7HVzJqWWEqEv5/ciiZJtWhAKp94QHlU4bLaPy0FJFk5GuQT1mmyxkmoLxsNe+87myQo5RXCb9fc05XCfU93LDnDImL0oMugroFb58oqlhbbEHpFMp86w+rqtlyOIGxH7H4mtqN2s7p1BlMGBKXNFXU4B0c4EdR78LYK2rIm8Odr9/NaS6NpRIXqIFPMAIsy2VHc9LgmmZL4CvrnDQfIt1Kbo40ilWE1z2FtSEvpU3QHw=="
+      }
+    },
+    "timestamp": "2023-02-04T20:36:31Z"
+  },
+  {
+    "type": "inbound",
+    "sender": "https://mastodon.social/users/crepels",
+    "path": "https://localhost.jambor.dev/users/dafrita_awdreniel/inbox",
+    "data": {
+      "@context": "https://www.w3.org/ns/activitystreams",
+      "id": "https://mastodon.social/users/crepels#votes/1267387/activity",
+      "type": "Create",
+      "actor": "https://mastodon.social/users/crepels",
+      "to": "https://localhost.jambor.dev/users/dafrita_awdreniel",
+      "object": {
+        "id": "https://mastodon.social/users/crepels#votes/1267387",
+        "type": "Note",
+        "name": "first choice",
+        "attributedTo": "https://mastodon.social/users/crepels",
+        "inReplyTo": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632",
+        "to": "https://localhost.jambor.dev/users/dafrita_awdreniel"
+      }
+    },
+    "timestamp": "2023-02-04T20:36:51Z"
+  },
+  {
+    "type": "inbound",
+    "sender": "https://techhub.social/users/crepels",
+    "path": "https://localhost.jambor.dev/users/dafrita_awdreniel/inbox",
+    "data": {
+      "@context": "https://www.w3.org/ns/activitystreams",
+      "id": "https://techhub.social/users/crepels#votes/27862/activity",
+      "type": "Create",
+      "actor": "https://techhub.social/users/crepels",
+      "to": "https://localhost.jambor.dev/users/dafrita_awdreniel",
+      "object": {
+        "id": "https://techhub.social/users/crepels#votes/27862",
+        "type": "Note",
+        "name": "second choice",
+        "attributedTo": "https://techhub.social/users/crepels",
+        "inReplyTo": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632",
+        "to": "https://localhost.jambor.dev/users/dafrita_awdreniel"
+      }
+    },
+    "timestamp": "2023-02-04T20:37:02Z"
+  },
+  {
+    "type": "outbound",
+    "sender": "https://localhost.jambor.dev/users/dafrita_awdreniel",
+    "path": "https://techhub.social/inbox",
+    "data": {
+      "@context": [
+        "https://www.w3.org/ns/activitystreams",
+        {
+          "ostatus": "http://ostatus.org#",
+          "atomUri": "ostatus:atomUri",
+          "inReplyToAtomUri": "ostatus:inReplyToAtomUri",
+          "conversation": "ostatus:conversation",
+          "sensitive": "as:sensitive",
+          "toot": "http://joinmastodon.org/ns#",
+          "votersCount": "toot:votersCount"
+        }
+      ],
+      "id": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632#updates/1675543022",
+      "type": "Update",
+      "actor": "https://localhost.jambor.dev/users/dafrita_awdreniel",
+      "to": [
+        "https://www.w3.org/ns/activitystreams#Public"
+      ],
+      "object": {
+        "id": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632",
+        "type": "Question",
+        "summary": null,
+        "inReplyTo": null,
+        "published": "2023-02-04T20:36:31Z",
+        "url": "https://localhost.jambor.dev/@dafrita_awdreniel/109808385499373632",
+        "attributedTo": "https://localhost.jambor.dev/users/dafrita_awdreniel",
+        "to": [
+          "https://www.w3.org/ns/activitystreams#Public"
+        ],
+        "cc": [
+          "https://localhost.jambor.dev/users/dafrita_awdreniel/followers"
+        ],
+        "sensitive": false,
+        "atomUri": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632",
+        "inReplyToAtomUri": null,
+        "conversation": "tag:localhost.jambor.dev,2023-02-04:objectId=64:objectType=Conversation",
+        "content": "<p>a second poll</p>",
+        "contentMap": {
+          "en": "<p>a second poll</p>"
+        },
+        "endTime": "2023-02-05T02:36:31Z",
+        "votersCount": 2,
+        "attachment": [],
+        "tag": [],
+        "replies": {
+          "id": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632/replies",
+          "type": "Collection",
+          "first": {
+            "type": "CollectionPage",
+            "next": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632/replies?only_other_accounts=true&page=true",
+            "partOf": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632/replies",
+            "items": []
+          }
+        },
+        "oneOf": [
+          {
+            "type": "Note",
+            "name": "first choice",
+            "replies": {
+              "type": "Collection",
+              "totalItems": 1
+            }
+          },
+          {
+            "type": "Note",
+            "name": "second choice",
+            "replies": {
+              "type": "Collection",
+              "totalItems": 1
+            }
+          }
+        ]
+      },
+      "signature": {
+        "type": "RsaSignature2017",
+        "creator": "https://localhost.jambor.dev/users/dafrita_awdreniel#main-key",
+        "created": "2023-02-04T20:39:52Z",
+        "signatureValue": "id49WPMjmdmsxQoO1Ibv+b29AAjUjfL1Z8MRBj6BBstozHE8k59ZIm5pQHOnUVbm/Js6EqaWgc/sQjKXUz97b8g4Dto/epz8oVwnqLOLHQfv2ftCdstbKCmzd/MSSnG3CWCbXkeMSn7YZw+lgaKgOifc1pc/x306/r3SC+zXTicYoW/3sgzAamy5b617EVvsJTCHFRldSTFFoGGBFpqJYQ05g4hyUCrJVT00/5JOwjk5jBzyAYZNIUFve2MwFxzT7CQQzOV4vnvP3Zi4NWV419K39S0Y4PEKYNX+965htlsKTL34kl5kZRdtQLdt7IpHHuKN8L1HhDX+2H3zFmqyKA=="
+      }
+    },
+    "timestamp": "2023-02-04T20:39:52Z"
+  },
+  {
+    "type": "outbound",
+    "sender": "https://localhost.jambor.dev/users/dafrita_awdreniel",
+    "path": "https://mastodon.social/inbox",
+    "data": {
+      "@context": [
+        "https://www.w3.org/ns/activitystreams",
+        {
+          "ostatus": "http://ostatus.org#",
+          "atomUri": "ostatus:atomUri",
+          "inReplyToAtomUri": "ostatus:inReplyToAtomUri",
+          "conversation": "ostatus:conversation",
+          "sensitive": "as:sensitive",
+          "toot": "http://joinmastodon.org/ns#",
+          "votersCount": "toot:votersCount"
+        }
+      ],
+      "id": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632#updates/1675543022",
+      "type": "Update",
+      "actor": "https://localhost.jambor.dev/users/dafrita_awdreniel",
+      "to": [
+        "https://www.w3.org/ns/activitystreams#Public"
+      ],
+      "object": {
+        "id": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632",
+        "type": "Question",
+        "summary": null,
+        "inReplyTo": null,
+        "published": "2023-02-04T20:36:31Z",
+        "url": "https://localhost.jambor.dev/@dafrita_awdreniel/109808385499373632",
+        "attributedTo": "https://localhost.jambor.dev/users/dafrita_awdreniel",
+        "to": [
+          "https://www.w3.org/ns/activitystreams#Public"
+        ],
+        "cc": [
+          "https://localhost.jambor.dev/users/dafrita_awdreniel/followers"
+        ],
+        "sensitive": false,
+        "atomUri": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632",
+        "inReplyToAtomUri": null,
+        "conversation": "tag:localhost.jambor.dev,2023-02-04:objectId=64:objectType=Conversation",
+        "content": "<p>a second poll</p>",
+        "contentMap": {
+          "en": "<p>a second poll</p>"
+        },
+        "endTime": "2023-02-05T02:36:31Z",
+        "votersCount": 2,
+        "attachment": [],
+        "tag": [],
+        "replies": {
+          "id": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632/replies",
+          "type": "Collection",
+          "first": {
+            "type": "CollectionPage",
+            "next": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632/replies?only_other_accounts=true&page=true",
+            "partOf": "https://localhost.jambor.dev/users/dafrita_awdreniel/statuses/109808385499373632/replies",
+            "items": []
+          }
+        },
+        "oneOf": [
+          {
+            "type": "Note",
+            "name": "first choice",
+            "replies": {
+              "type": "Collection",
+              "totalItems": 1
+            }
+          },
+          {
+            "type": "Note",
+            "name": "second choice",
+            "replies": {
+              "type": "Collection",
+              "totalItems": 1
+            }
+          }
+        ]
+      },
+      "signature": {
+        "type": "RsaSignature2017",
+        "creator": "https://localhost.jambor.dev/users/dafrita_awdreniel#main-key",
+        "created": "2023-02-04T20:39:52Z",
+        "signatureValue": "id49WPMjmdmsxQoO1Ibv+b29AAjUjfL1Z8MRBj6BBstozHE8k59ZIm5pQHOnUVbm/Js6EqaWgc/sQjKXUz97b8g4Dto/epz8oVwnqLOLHQfv2ftCdstbKCmzd/MSSnG3CWCbXkeMSn7YZw+lgaKgOifc1pc/x306/r3SC+zXTicYoW/3sgzAamy5b617EVvsJTCHFRldSTFFoGGBFpqJYQ05g4hyUCrJVT00/5JOwjk5jBzyAYZNIUFve2MwFxzT7CQQzOV4vnvP3Zi4NWV419K39S0Y4PEKYNX+965htlsKTL34kl5kZRdtQLdt7IpHHuKN8L1HhDX+2H3zFmqyKA=="
+      }
+    },
+    "timestamp": "2023-02-04T20:39:52Z"
+  }
+]
