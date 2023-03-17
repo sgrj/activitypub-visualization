@@ -17,7 +17,7 @@ declare global {
 export function showActivityLog(logs: Array<ILogEvent>, elt: any) {
   function Container() {
     return (
-      <div className='h-full font-[Roboto] text-[13px] bg-mastodon-gray-100 leading-[normal]'>
+      <div className='h-full font-[Roboto] text-[13px] bg-mastodon-gray-100 dark:bg-[#191b22] leading-[normal]'>
         <ActivityPubVisualization logs={logs} />
       </div>
     );
