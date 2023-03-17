@@ -12,11 +12,22 @@ function ActivityDetails({ activity }: { activity: IActivity }) {
       case 'Follow':
       case 'Like':
       case 'Block':
+      case 'Announce':
         return <div className='object overflow-auto'>{activity.object}</div>;
       case 'Note':
       case 'Question':
         return (
           <div className='object font-mono overflow-auto'>{activity.content || activity.name}</div>
+        );
+      case 'Person':
+        return <div className='object overflow-auto'>{activity.id}</div>;
+      case 'Move':
+        return (
+          <div className='object overflow-auto'>
+            <div>{activity.object}</div>
+            <div className='italic'>to</div>
+            <div>{activity.target}</div>
+          </div>
         );
       default:
         return null;

@@ -11,7 +11,10 @@ import './font.css';
 import type { ILogEvent } from './types';
 
 // import logs from './logs.json';
-import logs from './question-with-votes.json';
+// import logs from './question-with-votes.json';
+// import logs from './announce.json';
+// import logs from './update-person.json';
+import logs from './move.json';
 import userEntity from './user-entity.json';
 
 const elt = document.createElement('div');

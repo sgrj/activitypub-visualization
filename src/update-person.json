@@ -1,0 +1,109 @@
+[
+  {
+    "type": "outbound",
+    "sender": "https://localhost.jambor.dev/users/aunulius_vraalaziel",
+    "path": "https://techhub.social/inbox",
+    "data": {
+      "@context": [
+        "https://www.w3.org/ns/activitystreams",
+        "https://w3id.org/security/v1",
+        {
+          "manuallyApprovesFollowers": "as:manuallyApprovesFollowers",
+          "toot": "http://joinmastodon.org/ns#",
+          "featured": {
+            "@id": "toot:featured",
+            "@type": "@id"
+          },
+          "featuredTags": {
+            "@id": "toot:featuredTags",
+            "@type": "@id"
+          },
+          "alsoKnownAs": {
+            "@id": "as:alsoKnownAs",
+            "@type": "@id"
+          },
+          "movedTo": {
+            "@id": "as:movedTo",
+            "@type": "@id"
+          },
+          "schema": "http://schema.org#",
+          "PropertyValue": "schema:PropertyValue",
+          "value": "schema:value",
+          "discoverable": "toot:discoverable",
+          "Device": "toot:Device",
+          "Ed25519Signature": "toot:Ed25519Signature",
+          "Ed25519Key": "toot:Ed25519Key",
+          "Curve25519Key": "toot:Curve25519Key",
+          "EncryptedMessage": "toot:EncryptedMessage",
+          "publicKeyBase64": "toot:publicKeyBase64",
+          "deviceId": "toot:deviceId",
+          "claim": {
+            "@type": "@id",
+            "@id": "toot:claim"
+          },
+          "fingerprintKey": {
+            "@type": "@id",
+            "@id": "toot:fingerprintKey"
+          },
+          "identityKey": {
+            "@type": "@id",
+            "@id": "toot:identityKey"
+          },
+          "devices": {
+            "@type": "@id",
+            "@id": "toot:devices"
+          },
+          "messageFranking": "toot:messageFranking",
+          "messageType": "toot:messageType",
+          "cipherText": "toot:cipherText",
+          "suspended": "toot:suspended"
+        }
+      ],
+      "id": "https://localhost.jambor.dev/users/aunulius_vraalaziel#updates/1675883875",
+      "type": "Update",
+      "actor": "https://localhost.jambor.dev/users/aunulius_vraalaziel",
+      "to": [
+        "https://www.w3.org/ns/activitystreams#Public"
+      ],
+      "object": {
+        "id": "https://localhost.jambor.dev/users/aunulius_vraalaziel",
+        "type": "Person",
+        "following": "https://localhost.jambor.dev/users/aunulius_vraalaziel/following",
+        "followers": "https://localhost.jambor.dev/users/aunulius_vraalaziel/followers",
+        "inbox": "https://localhost.jambor.dev/users/aunulius_vraalaziel/inbox",
+        "outbox": "https://localhost.jambor.dev/users/aunulius_vraalaziel/outbox",
+        "featured": "https://localhost.jambor.dev/users/aunulius_vraalaziel/collections/featured",
+        "featuredTags": "https://localhost.jambor.dev/users/aunulius_vraalaziel/collections/tags",
+        "preferredUsername": "aunulius_vraalaziel",
+        "name": "Aunulius Vraalaziel",
+        "summary": "",
+        "url": "https://localhost.jambor.dev/@aunulius_vraalaziel",
+        "manuallyApprovesFollowers": false,
+        "discoverable": false,
+        "published": "2023-02-08T00:00:00Z",
+        "devices": "https://localhost.jambor.dev/users/aunulius_vraalaziel/collections/devices",
+        "movedTo": "https://localhost.jambor.dev/users/aldaes_zaatuvs",
+        "alsoKnownAs": [
+          "https://mastodon.social/users/crepels"
+        ],
+        "publicKey": {
+          "id": "https://localhost.jambor.dev/users/aunulius_vraalaziel#main-key",
+          "owner": "https://localhost.jambor.dev/users/aunulius_vraalaziel",
+          "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnWnAd+9K+oHpL3JuI56t\nN8NNLnlxjRetrIIkpOEQ8cRUtYso6DLpipkrsOGE66HUD6AAaNhuqy9d+iiIoPzS\njHsw0T12pEchlBT1OUdEZuGC1VBgBSBjFUMMhbDP0VLzOUgvQStTNAWD2Imw1J3E\nd6H6KhllTsplAJNmL0eMGRYX59LwPIexWwPuLntGrkaHqCQJdWNsobG8ksumInpu\ncpEItM9BJG0icJKG00F7LI7ojlFb7cvraDInvO7k1XPMu/hF3VE2DgQMAn3BK4dh\n0BzbKuduTxK4x7n5tHhE6D+vxO2k4tQ9BGN44bahbWmUo2eAslCuzeqzpLSeUHEH\nCwIDAQAB\n-----END PUBLIC KEY-----\n"
+        },
+        "tag": [],
+        "attachment": [],
+        "endpoints": {
+          "sharedInbox": "https://localhost.jambor.dev/inbox"
+        }
+      },
+      "signature": {
+        "type": "RsaSignature2017",
+        "creator": "https://localhost.jambor.dev/users/aunulius_vraalaziel#main-key",
+        "created": "2023-02-08T19:17:55Z",
+        "signatureValue": "LmO3kuOUc3aClRUbIxViSGDfFkv5TNphP85amc8DtoxBC8R8zFxBa2rHNYkicH9G7TZNscB+sSdpZ12EemyhTsvIyFFEQLs2B/nXbsvSDQN+u+/suVlwmWZvVIX8F9sZzZ77+vtOPfvfXQgsAnCBR/52rKnc6nDOoccHRTQBPakDPqCzVvjoex6mTkkYCNWfhLRtlIjK5mJUgTSkuLs3XwPracOXQyX8kLb7HYXE4uWRVoJSkAnCUB8n0UiWpBTQhMlYeNXWjY5r5w7iooszxNsmJdl5uud4Df3T1eR0ED58KZMQkM1euvGOg3zDPx39dccAOZyAmzxbV2/EpyBXCg=="
+      }
+    },
+    "timestamp": "2023-02-08T19:17:56Z"
+  }
+]

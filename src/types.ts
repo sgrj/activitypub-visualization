@@ -5,6 +5,7 @@ export interface IActivity {
   object?: string | IActivity;
   content?: string;
   name?: string;
+  target?: string;
 }
 
 export interface ILogEvent {
