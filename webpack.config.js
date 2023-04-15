@@ -4,19 +4,22 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   mode: 'production',
   entry: './src/index.tsx',
-  module: {},
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js',
+    filename: 'activitypub-visualization.js',
     library: {
       name: 'activity_pub_visualization',
       type: 'umd',
     },
   },
-  plugins: [new MiniCssExtractPlugin({})],
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'activitypub-visualization.css',
+    }),
+  ],
   module: {
     rules: [
       {
