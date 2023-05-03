@@ -39,11 +39,11 @@ function Container() {
       </div>
 
       {
-        <ActivityPubVisualization
-          logs={logs as Array<ILogEvent>}
-          showExplorerLink={true}
-          onExplorerLinkClick={(data) => console.log(data)}
-        />
+        // <ActivityPubVisualization
+        //   logs={logs as Array<ILogEvent>}
+        //   showExplorerLink={true}
+        //   onExplorerLinkClick={(data) => console.log(data)}
+        // />
       }
       {
         // <ActivityPubExplorer
@@ -57,11 +57,11 @@ function Container() {
         // <Colors />
       }
       {
-        // <ActivityPubExplorer
-        //   fetchMethod={async (url) =>
-        //     fetch('http://localhost:3000/api/v1/json_ld?' + new URLSearchParams({ url }).toString())
-        //   }
-        // />
+        <ActivityPubExplorer
+          fetchMethod={async (url) =>
+            fetch('http://localhost:3000/api/v1/json_ld?' + new URLSearchParams({ url }).toString())
+          }
+        />
       }
     </div>
   );

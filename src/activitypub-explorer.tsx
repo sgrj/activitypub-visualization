@@ -16,7 +16,7 @@ export default function ActivityPubExplorer({
   initialUrl = '',
 }: {
   fetchMethod: (url: string) => Promise<Response>;
-  initialValue?: any;
+  initialValue?: object;
   initialUrl?: string;
 }) {
   // We want to show an explanation box when the search field is focussed but empty.
@@ -29,7 +29,7 @@ export default function ActivityPubExplorer({
 
   const [searchString, setSearchString] = useState('');
 
-  const [data, setData] = useState(
+  const [history, setHistory] = useState(
     initialValue != null
       ? [
           {
@@ -51,7 +51,7 @@ export default function ActivityPubExplorer({
     }
   }, []);
 
-  const fetchJsonLd = async (urlOrFullMention: string, baseData = data) => {
+  const fetchJsonLd = async (urlOrFullMention: string, oldHistory = history) => {
     const match = urlOrFullMention.match(fullMentionRegex);
 
     const url =
@@ -59,8 +59,8 @@ export default function ActivityPubExplorer({
         ? `https://${match.groups.domain}/.well-known/webfinger?resource=acct:${match.groups.username}@${match.groups.domain}`
         : urlOrFullMention;
 
-    setData([
-      ...baseData,
+    setHistory([
+      ...oldHistory,
       {
         url,
         status: null,
@@ -78,8 +78,8 @@ export default function ActivityPubExplorer({
     setLoading(false);
 
     try {
-      setData([
-        ...baseData,
+      setHistory([
+        ...oldHistory,
         {
           url,
           status: response.status,
@@ -89,8 +89,8 @@ export default function ActivityPubExplorer({
         },
       ]);
     } catch (e) {
-      setData([
-        ...baseData,
+      setHistory([
+        ...oldHistory,
         {
           url,
           status: response.status,
@@ -128,21 +128,21 @@ export default function ActivityPubExplorer({
     </div>
   );
 
-  const { url = '', status, statusText, value, validJson } = data[data.length - 1] || {};
+  const { url = '', status, statusText, value, validJson } = history[history.length - 1] || {};
 
   return (
     <div className='dark:text-mastodon-gray-500 dark:bg-mastodon-gray-1000 bg-mastodon-gray-200'>
       <div className='p-4 flex items-center'>
         <button
           className={`w-6 h-6 p-0 m-2 ml-0 bg-transparent border-0 ${
-            data.length > 1
+            history.length > 1
               ? 'fill-mastodon-gray-600 cursor-pointer'
               : 'dark:fill-mastodon-gray-800 fill-mastodon-gray-400'
           }`}
           onClick={() => {
-            if (data.length > 1) {
-              setSearchString(data[data.length - 2].url || '');
-              setData(data.slice(0, data.length - 1));
+            if (history.length > 1) {
+              setSearchString(history[history.length - 2].url || '');
+              setHistory(history.slice(0, history.length - 1));
             }
           }}
         >
@@ -156,7 +156,7 @@ export default function ActivityPubExplorer({
           }`}
           onClick={() => {
             if (url !== '') {
-              fetchJsonLd(url, data.slice(0, data.length - 1));
+              fetchJsonLd(url, history.slice(0, history.length - 1));
             }
           }}
         >
@@ -196,7 +196,7 @@ export default function ActivityPubExplorer({
           {searchString === '' && focused && <ExplanationBox />}
         </div>
       </div>
-      {data.length > 0 && (
+      {history.length > 0 && (
         <div className='border-0 border-t border-solid dark:border-t-mastodon-gray-800 border-t-mastodon-gray-500'>
           {loading ? (
             <LoadingIndicator />
