@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
-import { ActivityPubVisualization } from './index';
+import ActivityPubVisualization from './activitypub-visualization';
 
 import './input.css';
 import './font.css';
