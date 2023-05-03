@@ -1,5 +1,7 @@
 import React from 'react';
 
+type JSONValue = string | number | boolean | object | Array<JSONValue> | null;
+
 export default function JsonViewer({
   json,
   clickableLinks,
@@ -26,7 +28,7 @@ export default function JsonViewer({
   const linkClass =
     'dark:text-green-300 text-green-700 hover:underline dark:hover:text-blue-300 hover:text-blue-700 cursor-pointer';
 
-  function Value({ value }: { value: any }) {
+  function Value({ value }: { value: JSONValue }) {
     if (typeof value === 'string') {
       return (
         <>
