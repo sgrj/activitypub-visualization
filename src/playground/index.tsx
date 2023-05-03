@@ -10,12 +10,13 @@ import '../font.css';
 
 import type { ILogEvent } from '../types';
 
-import logsFollowCreateLike from './logs.json';
-import logsQuestionWithVotes from './question-with-votes.json';
-import logsAnnounce from './announce.json';
-import logsUpdatePerson from './update-person.json';
-import logsMove from './move.json';
-import logsCreateUpdateDelete from './create-update-delete.json';
+import logsFollowCreateLike from './logs/follow-create-like.json';
+
+import logsQuestionWithVotes from './logs/question-with-votes.json';
+import logsAnnounce from './logs/announce.json';
+import logsUpdatePerson from './logs/update-person.json';
+import logsMove from './logs/move.json';
+import logsCreateUpdateDelete from './logs/create-update-delete.json';
 import userEntity from './user-entity.json';
 
 import { createBrowserRouter, RouterProvider, useParams } from 'react-router-dom';
