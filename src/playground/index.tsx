@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { ActivityPubExplorer, ActivityPubVisualization } from './index';
+import { ActivityPubExplorer, ActivityPubVisualization } from '../index';
 
 import Colors from './colors';
 
-import './input.css';
-import './font.css';
+import '../input.css';
+import '../font.css';
 
-import type { ILogEvent } from './types';
+import type { ILogEvent } from '../types';
 
 import logsFollowCreateLike from './logs.json';
 import logsQuestionWithVotes from './question-with-votes.json';
