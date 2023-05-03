@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import ActivityPubVisualization from './activitypub-visualization';
@@ -8,13 +8,7 @@ import './font.css';
 
 import type { ILogEvent } from './types';
 
-declare global {
-  interface Window {
-    showActivityLog: any;
-  }
-}
-
-export function showActivityLog(logs: Array<ILogEvent>, elt: any) {
+export function showActivityLog(logs: Array<ILogEvent>, elt: HTMLElement) {
   function Container() {
     return (
       <div className='h-full font-[Roboto] text-[13px] bg-mastodon-gray-100 dark:bg-[#191b22] leading-[normal]'>
