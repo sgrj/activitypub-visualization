@@ -12,11 +12,11 @@ const fullMentionRegex = /^@(?<username>[^@]+)@(?<domain>[^@]+)$/;
 
 export default function ActivityPubExplorer({
   fetchMethod,
-  initialValue = null,
+  initialActivityJson = null,
   initialUrl = '',
 }: {
   fetchMethod: (url: string) => Promise<Response>;
-  initialValue?: object;
+  initialActivityJson?: object;
   initialUrl?: string;
 }) {
   // We want to show an explanation box when the search field is focussed but empty.
@@ -30,13 +30,13 @@ export default function ActivityPubExplorer({
   const [searchString, setSearchString] = useState('');
 
   const [history, setHistory] = useState(
-    initialValue != null
+    initialActivityJson != null
       ? [
           {
             url: '',
             status: null,
             statusText: null,
-            value: initialValue,
+            activityJson: initialActivityJson,
             validJson: true,
           },
         ]
@@ -65,7 +65,7 @@ export default function ActivityPubExplorer({
         url,
         status: null,
         statusText: null,
-        value: null,
+        activityJson: null,
         validJson: false,
       },
     ]);
@@ -84,7 +84,7 @@ export default function ActivityPubExplorer({
           url,
           status: response.status,
           statusText: response.statusText,
-          value: await response.json(),
+          activityJson: await response.json(),
           validJson: true,
         },
       ]);
@@ -95,7 +95,7 @@ export default function ActivityPubExplorer({
           url,
           status: response.status,
           statusText: response.statusText,
-          value: null,
+          activityJson: null,
           validJson: false,
         },
       ]);
@@ -128,7 +128,13 @@ export default function ActivityPubExplorer({
     </div>
   );
 
-  const { url = '', status, statusText, value, validJson } = history[history.length - 1] || {};
+  const {
+    url = '',
+    status,
+    statusText,
+    activityJson,
+    validJson,
+  } = history[history.length - 1] || {};
 
   return (
     <div className='dark:text-mastodon-gray-500 dark:bg-mastodon-gray-1000 bg-mastodon-gray-200'>
@@ -202,7 +208,7 @@ export default function ActivityPubExplorer({
             <LoadingIndicator />
           ) : validJson ? (
             <JsonViewer
-              json={value}
+              json={activityJson}
               clickableLinks={true}
               onLinkClick={(url) => fetchJsonLd(url)}
             />

@@ -74,7 +74,7 @@ function LogEvent({
   clickableLinks?: boolean;
   onLinkClick?: (url: string) => void;
   showExplorerLink?: boolean;
-  onExplorerLinkClick?: (json: any) => void;
+  onExplorerLinkClick?: (json: IActivity) => void;
 }) {
   const [showSource, setShowSource] = useState(false);
 
@@ -134,7 +134,7 @@ export default function ActivityPubVisualization({
   clickableLinks?: boolean;
   onLinkClick?: (url: string) => void;
   showExplorerLink?: boolean;
-  onExplorerLinkClick?: (json: any) => void;
+  onExplorerLinkClick?: (json: IActivity) => void;
 }) {
   return (
     <div className='flex flex-col'>

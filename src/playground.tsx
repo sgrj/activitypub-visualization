@@ -50,7 +50,7 @@ function Container() {
         //   fetchMethod={async (url) =>
         //     fetch('http://localhost:3000/api/v1/json_ld?' + new URLSearchParams({ url }).toString())
         //   }
-        //   initialValue={userEntity}
+        //   initialActivityJson={userEntity}
         // />
       }
       {
