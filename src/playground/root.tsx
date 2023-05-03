@@ -11,45 +11,49 @@ export default function Root() {
         darkMode ? 'bg-[#191b22] dark' : 'bg-mastodon-gray-100'
       }`}
     >
-      <div id='sidebar'>
-        <div
-          onClick={() => setDarkMode(!darkMode)}
-          className={`${darkMode ? 'text-white' : 'text-black'} cursor-pointer`}
-        >
-          Switch to {darkMode ? 'light' : 'dark'} mode
-        </div>
-        <nav>
-          Activity Log
-          <ul>
-            <li>
-              <Link to='/log/follow-create-like'>follow-create-like</Link>
-            </li>
-            <li>
-              <Link to='/log/create-update-delete'>create-update-delete</Link>
-            </li>
-            <li>
-              <Link to='/log/update-person'>update-person</Link>
-            </li>
-            <li>
-              <Link to='/log/move'>move</Link>
-            </li>
-            <li>
-              <Link to='/log/question-with-votes'>question-with-votes</Link>
-            </li>
-            <li>
-              <Link to='/log/announce'>announce</Link>
-            </li>
-          </ul>
-          ActivityPub Explorer
-          <ul>
-            <li>
-              <Link to='/explorer/empty'>empty state</Link>
-            </li>
-            <li>
-              <Link to='/explorer/initial-data'>with initial data</Link>
-            </li>
-          </ul>
-          <Link to='/colors'>Tailwind colors</Link>
+      <div id='sidebar' className={`w-80 ${darkMode ? 'text-white' : 'text-black'}`}>
+        <nav className='p-1'>
+          <div onClick={() => setDarkMode(!darkMode)} className='cursor-pointer'>
+            Switch to {darkMode ? 'light' : 'dark'} mode
+          </div>
+          <div className='py-2 font-medium text-base'>Activity Log</div>
+          <div className='px-2'>
+            {[
+              'follow-create-like',
+              'create-update-delete',
+              'update-person',
+              'move',
+              'question-with-votes',
+              'announce',
+            ].map((logName) => (
+              <div key={logName} className='py-0.5'>
+                <Link
+                  className='text-blue-600 hover:text-blue-800 visited:text-blue-600'
+                  to={`/log/${logName}`}
+                >
+                  {logName}
+                </Link>
+              </div>
+            ))}
+          </div>
+          <div className='py-2 font-medium text-base'>ActivityPub Explorer</div>
+          <div className='px-2'>
+            {['empty', 'initial-data'].map((data) => (
+              <div key={data} className='py-0.5'>
+                <Link
+                  className='text-blue-600 hover:text-blue-800 visited:text-blue-600'
+                  to={`/explorer/${data}`}
+                >
+                  {data}
+                </Link>
+              </div>
+            ))}
+          </div>
+          <div className='py-2'>
+            <Link className='text-blue-600 hover:text-blue-800 visited:text-blue-600' to='/colors'>
+              Tailwind colors
+            </Link>
+          </div>
         </nav>
       </div>
       <div id='detail' className='w-full max-w-[1000px]'>
