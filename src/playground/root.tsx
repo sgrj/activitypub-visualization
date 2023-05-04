@@ -16,7 +16,7 @@ export default function Root() {
         darkMode ? 'bg-[#191b22] dark' : 'bg-mastodon-gray-100'
       }`}
     >
-      <div id='sidebar' className={`w-80 ${darkMode ? 'text-white' : 'text-black'}`}>
+      <div id='sidebar' className={`w-80 min-w-[20rem] ${darkMode ? 'text-white' : 'text-black'}`}>
         <nav className='p-1'>
           <div
             onClick={() => {
