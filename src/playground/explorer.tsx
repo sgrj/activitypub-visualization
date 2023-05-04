@@ -19,6 +19,7 @@ export default function Explorer() {
 
   return (
     <ActivityPubExplorer
+      key={data}
       fetchMethod={async (url) =>
         fetch('http://localhost:3000/api/v1/json_ld?' + new URLSearchParams({ url }).toString())
       }
