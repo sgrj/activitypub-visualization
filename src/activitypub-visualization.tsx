@@ -140,9 +140,9 @@ export default function ActivityPubVisualization({
     <div className='flex flex-col'>
       {logs
         .filter((event) => event.type !== 'keep-alive')
-        .map((event) => (
+        .map((event, i) => (
           <LogEvent
-            key={event.data.id}
+            key={i + event.data.id}
             event={event}
             clickableLinks={clickableLinks}
             onLinkClick={onLinkClick}
