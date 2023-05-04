@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link, useSearchParams } from 'react-router-dom';
 
 export default function Root() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const darkMode = searchParams.get('dark-mode') == 'true';
+
+  const linkStyle =
+    'text-blue-500 hover:text-blue-800 dark:hover:text-blue-300 visited:text-blue-500';
 
   return (
     <div
@@ -13,7 +18,14 @@ export default function Root() {
     >
       <div id='sidebar' className={`w-80 ${darkMode ? 'text-white' : 'text-black'}`}>
         <nav className='p-1'>
-          <div onClick={() => setDarkMode(!darkMode)} className='cursor-pointer'>
+          <div
+            onClick={() => {
+              const newSearchParams = new URLSearchParams(searchParams);
+              newSearchParams.set('dark-mode', (!darkMode).toString());
+              setSearchParams(newSearchParams);
+            }}
+            className='cursor-pointer'
+          >
             Switch to {darkMode ? 'light' : 'dark'} mode
           </div>
           <div className='py-2 font-medium text-base'>Activity Log</div>
@@ -27,10 +39,7 @@ export default function Root() {
               'announce',
             ].map((logName) => (
               <div key={logName} className='py-0.5'>
-                <Link
-                  className='text-blue-600 hover:text-blue-800 visited:text-blue-600'
-                  to={`/log/${logName}`}
-                >
+                <Link className={linkStyle} to={`/log/${logName}?${searchParams.toString()}`}>
                   {logName}
                 </Link>
               </div>
@@ -40,17 +49,14 @@ export default function Root() {
           <div className='px-2'>
             {['empty', 'initial-data'].map((data) => (
               <div key={data} className='py-0.5'>
-                <Link
-                  className='text-blue-600 hover:text-blue-800 visited:text-blue-600'
-                  to={`/explorer/${data}`}
-                >
+                <Link className={linkStyle} to={`/explorer/${data}?${searchParams.toString()}`}>
                   {data}
                 </Link>
               </div>
             ))}
           </div>
           <div className='py-2'>
-            <Link className='text-blue-600 hover:text-blue-800 visited:text-blue-600' to='/colors'>
+            <Link className={linkStyle} to={`/colors?${searchParams.toString()}`}>
               Tailwind colors
             </Link>
           </div>
