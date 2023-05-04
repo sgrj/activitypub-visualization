@@ -14,6 +14,10 @@ const elt = document.createElement('div');
 document.querySelector('body').appendChild(elt);
 document.querySelector('body').style.margin = '0';
 
+elt.style.height = '100%';
+document.querySelector('body').style.height = '100%';
+document.querySelector('html').style.height = '100%';
+
 const router = createBrowserRouter([
   {
     path: '/',
