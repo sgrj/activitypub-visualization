@@ -11,6 +11,7 @@ function ActivityDetails({ activity }: { activity: IActivity }) {
     switch (activity.type) {
       case 'Follow':
       case 'Like':
+      case 'Dislike':
       case 'Block':
       case 'Announce':
         return (
@@ -20,6 +21,7 @@ function ActivityDetails({ activity }: { activity: IActivity }) {
         );
       case 'Note':
       case 'Question':
+      case 'Page':
         return (
           <div className='object font-mono overflow-auto'>{activity.content || activity.name}</div>
         );

@@ -39,6 +39,8 @@ export default function Root() {
               'announce',
               'lemmy-announce',
               'lemmy-create',
+              'dislike',
+              'create-page',
             ].map((logName) => (
               <div key={logName} className='py-0.5'>
                 <Link className={linkStyle} to={`/log/${logName}?${searchParams.toString()}`}>

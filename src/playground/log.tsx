@@ -13,6 +13,8 @@ import logsMove from './logs/move.json';
 import logsCreateUpdateDelete from './logs/create-update-delete.json';
 import logsLemmyAnnounce from './logs/lemmy-announce.json';
 import logsLemmyCreate from './logs/lemmy-create.json';
+import logsDislike from './logs/dislike.json';
+import logsCreatePage from './logs/create-page.json';
 
 export default function Log() {
   const { logName } = useParams();
@@ -34,6 +36,10 @@ export default function Log() {
       return logsLemmyAnnounce;
     } else if (logName == 'lemmy-create') {
       return logsLemmyCreate;
+    } else if (logName == 'dislike') {
+      return logsDislike;
+    } else if (logName == 'create-page') {
+      return logsCreatePage;
     } else {
       return [];
     }
