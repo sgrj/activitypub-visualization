@@ -1,0 +1,97 @@
+[
+  {
+    "data" : {
+      "@context" : [
+        "https://www.w3.org/ns/activitystreams",
+        "https://w3id.org/security/v1",
+        {
+          "ChatMessage" : "litepub:ChatMessage",
+          "commentsEnabled" : "pt:commentsEnabled",
+          "distinguished" : "lemmy:distinguished",
+          "expires" : "as:endTime",
+          "identifier" : "sc:identifier",
+          "language" : "sc:inLanguage",
+          "lemmy" : "https://join-lemmy.org/ns#",
+          "litepub" : "http://litepub.social/ns#",
+          "matrixUserId" : "lemmy:matrixUserId",
+          "moderators" : {
+            "@id" : "lemmy:moderators",
+            "@type" : "@id"
+          },
+          "postingRestrictedToMods" : "lemmy:postingRestrictedToMods",
+          "pt" : "https://joinpeertube.org/ns#",
+          "removeData" : "lemmy:removeData",
+          "sc" : "http://schema.org/",
+          "sensitive" : "as:sensitive",
+          "stickied" : "lemmy:stickied"
+        }
+      ],
+      "actor" : "https://lemmy.world/c/fediverse",
+      "cc" : [
+        "https://lemmy.world/c/fediverse/followers"
+      ],
+      "id" : "https://lemmy.world/activities/announce/91b347b1-1b9e-478a-9c04-0ddf7812fc76",
+      "object" : {
+        "actor" : "https://lemmy.world/u/jesusrp98",
+        "audience" : "https://lemmy.world/c/fediverse",
+        "cc" : [
+          "https://lemmy.world/c/fediverse",
+          "https://lemmy.world/u/MicroWave"
+        ],
+        "id" : "https://lemmy.world/activities/create/a5e55198-c26a-4a8d-ab81-ce9117f8a9ac",
+        "object" : {
+          "attributedTo" : "https://lemmy.world/u/jesusrp98",
+          "audience" : "https://lemmy.world/c/fediverse",
+          "cc" : [
+            "https://lemmy.world/c/fediverse",
+            "https://lemmy.world/u/MicroWave"
+          ],
+          "content" : "<p>Looks awesome!</p>\n",
+          "distinguished" : false,
+          "id" : "https://lemmy.world/comment/741137",
+          "inReplyTo" : "https://lemmy.world/post/920949",
+          "language" : {
+            "identifier" : "en",
+            "name" : "English"
+          },
+          "mediaType" : "text/html",
+          "published" : "2023-07-02T18:18:37.879447+00:00",
+          "source" : {
+            "content" : "Looks awesome!",
+            "mediaType" : "text/markdown"
+          },
+          "tag" : [
+            {
+              "href" : "https://lemmy.world/u/MicroWave",
+              "name" : "@MicroWave@lemmy.world",
+              "type" : "Mention"
+            }
+          ],
+          "to" : [
+            "https://www.w3.org/ns/activitystreams#Public"
+          ],
+          "type" : "Note"
+        },
+        "tag" : [
+          {
+            "href" : "https://lemmy.world/u/MicroWave",
+            "name" : "@MicroWave@lemmy.world",
+            "type" : "Mention"
+          }
+        ],
+        "to" : [
+          "https://www.w3.org/ns/activitystreams#Public"
+        ],
+        "type" : "Create"
+      },
+      "to" : [
+        "https://www.w3.org/ns/activitystreams#Public"
+      ],
+      "type" : "Announce"
+    },
+    "path" : "https://activitypub.academy/inbox",
+    "sender" : "https://lemmy.world/c/fediverse",
+    "timestamp" : "2023-07-02T18:22:00Z",
+    "type" : "inbound"
+  }
+]

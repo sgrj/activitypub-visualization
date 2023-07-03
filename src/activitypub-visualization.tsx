@@ -13,7 +13,11 @@ function ActivityDetails({ activity }: { activity: IActivity }) {
       case 'Like':
       case 'Block':
       case 'Announce':
-        return <div className='object overflow-auto'>{activity.object}</div>;
+        return (
+          typeof activity.object === 'string' && (
+            <div className='object overflow-auto'>{activity.object}</div>
+          )
+        );
       case 'Note':
       case 'Question':
         return (

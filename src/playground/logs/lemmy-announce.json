@@ -1,0 +1,51 @@
+[
+  {
+    "data" : {
+      "@context" : [
+        "https://www.w3.org/ns/activitystreams",
+        "https://w3id.org/security/v1",
+        {
+          "ChatMessage" : "litepub:ChatMessage",
+          "commentsEnabled" : "pt:commentsEnabled",
+          "distinguished" : "lemmy:distinguished",
+          "expires" : "as:endTime",
+          "identifier" : "sc:identifier",
+          "language" : "sc:inLanguage",
+          "lemmy" : "https://join-lemmy.org/ns#",
+          "litepub" : "http://litepub.social/ns#",
+          "matrixUserId" : "lemmy:matrixUserId",
+          "moderators" : {
+            "@id" : "lemmy:moderators",
+            "@type" : "@id"
+          },
+          "postingRestrictedToMods" : "lemmy:postingRestrictedToMods",
+          "pt" : "https://joinpeertube.org/ns#",
+          "removeData" : "lemmy:removeData",
+          "sc" : "http://schema.org/",
+          "sensitive" : "as:sensitive",
+          "stickied" : "lemmy:stickied"
+        }
+      ],
+      "actor" : "https://lemmy.world/c/newcommunities",
+      "cc" : [
+        "https://lemmy.world/c/newcommunities/followers"
+      ],
+      "id" : "https://lemmy.world/activities/announce/71fc1332-5802-4c4e-9a55-69bf103b5945",
+      "object" : {
+        "actor" : "https://lemmy.world/u/crepels",
+        "audience" : "https://lemmy.world/c/newcommunities",
+        "id" : "https://lemmy.world/activities/like/914fc882-6733-4a11-b61d-3e2bc087a721",
+        "object" : "https://lemm.ee/post/565146",
+        "type" : "Like"
+      },
+      "to" : [
+        "https://www.w3.org/ns/activitystreams#Public"
+      ],
+      "type" : "Announce"
+    },
+    "path" : "https://activitypub.academy/inbox",
+    "sender" : "https://lemmy.world/c/newcommunities",
+    "timestamp" : "2023-07-02T18:22:11Z",
+    "type" : "inbound"
+  }
+]
