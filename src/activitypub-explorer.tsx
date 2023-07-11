@@ -8,7 +8,7 @@ import './input.css';
 import ArrowLeftIcon from './images/arrow-left.svg';
 import RefreshIcon from './images/refresh.svg';
 
-const fullMentionRegex = /^@(?<username>[^@]+)@(?<domain>[^@]+)$/;
+const fullMentionOrCommunityRegex = /^[!@](?<username>[^@]+)@(?<domain>[^@]+)$/;
 
 export default function ActivityPubExplorer({
   fetchMethod,
@@ -52,7 +52,7 @@ export default function ActivityPubExplorer({
   }, []);
 
   const fetchJsonLd = async (urlOrFullMention: string, oldHistory = history) => {
-    const match = urlOrFullMention.match(fullMentionRegex);
+    const match = urlOrFullMention.match(fullMentionOrCommunityRegex);
 
     const url =
       match != null
@@ -122,6 +122,11 @@ export default function ActivityPubExplorer({
         <div className='mt-2'>
           Enter a full mention like{' '}
           <span className='font-medium text-black'>@crepels@mastodon.social</span>; it will be
+          translated to the corresponding webfinger URL.
+        </div>
+        <div className='mt-2'>
+          Enter a full Lemmy community name like{' '}
+          <span className='font-medium text-black'>!fediverse@lemmy.world</span>; it will be
           translated to the corresponding webfinger URL.
         </div>
       </div>
