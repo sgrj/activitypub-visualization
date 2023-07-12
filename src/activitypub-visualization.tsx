@@ -23,7 +23,7 @@ function ActivityDetails({ activity }: { activity: IActivity }) {
       case 'Question':
       case 'Page':
         return (
-          <div className='object font-mono overflow-auto'>{activity.content || activity.name}</div>
+          <div className='object font-mono overflow-auto'>{activity.name || activity.content}</div>
         );
       case 'Person':
         return <div className='object overflow-auto'>{activity.id}</div>;
