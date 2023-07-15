@@ -16,6 +16,8 @@ module.exports = {
       'mastodon-gray-300': '#d9e1e8',
       'mastodon-gray-200': '#e6ebf0',
       'mastodon-gray-100': '#eff3f5',
+      'mastodon-blue': '#3a3bff',
+      'mastodon-violet': '#8c8dff',
       'mastodon-primary': '#6364ff',
     },
   },

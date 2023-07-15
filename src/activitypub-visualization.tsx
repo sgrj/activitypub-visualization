@@ -26,7 +26,7 @@ function ActivityDetails({ activity }: { activity: IActivity }) {
       case 'Page':
         return (
           <div
-            className='object font-mono overflow-auto [&>p:first-child]:mt-0 [&>p:last-child]:mb-0 [&>p]:my-4'
+            className='object font-mono overflow-auto [&>p:first-child]:mt-0 [&>p:last-child]:mb-0 [&>p]:my-4 [&_a]:dark:text-mastodon-violet [&_a]:text-mastodon-blue [&_a]:no-underline'
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(activity.name || activity.content, {
                 ALLOWED_TAGS: ['p', 'a', 'br'],
