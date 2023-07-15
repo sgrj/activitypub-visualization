@@ -1,0 +1,459 @@
+[
+  {
+    "type": "outbound",
+    "sender": "https://localhost.jambor.dev/users/fadacus_dravabiel",
+    "path": "https://lemming.jambor.dev/inbox",
+    "data": {
+      "@context": [
+        "https://www.w3.org/ns/activitystreams",
+        {
+          "ostatus": "http://ostatus.org#",
+          "atomUri": "ostatus:atomUri",
+          "inReplyToAtomUri": "ostatus:inReplyToAtomUri",
+          "conversation": "ostatus:conversation",
+          "sensitive": "as:sensitive",
+          "toot": "http://joinmastodon.org/ns#",
+          "votersCount": "toot:votersCount",
+          "blurhash": "toot:blurhash",
+          "focalPoint": {
+            "@container": "@list",
+            "@id": "toot:focalPoint"
+          }
+        }
+      ],
+      "id": "https://localhost.jambor.dev/users/fadacus_dravabiel/statuses/110711839173189986/activity",
+      "type": "Create",
+      "actor": "https://localhost.jambor.dev/users/fadacus_dravabiel",
+      "published": "2023-07-14T09:56:40Z",
+      "to": [
+        "https://www.w3.org/ns/activitystreams#Public"
+      ],
+      "cc": [
+        "https://localhost.jambor.dev/users/fadacus_dravabiel/followers",
+        "https://lemming.jambor.dev/c/activitypub",
+        "https://lemming.jambor.dev/c/activitypub/followers"
+      ],
+      "object": {
+        "id": "https://localhost.jambor.dev/users/fadacus_dravabiel/statuses/110711839173189986",
+        "type": "Note",
+        "summary": null,
+        "inReplyTo": null,
+        "published": "2023-07-14T09:56:40Z",
+        "url": "https://localhost.jambor.dev/@fadacus_dravabiel/110711839173189986",
+        "attributedTo": "https://localhost.jambor.dev/users/fadacus_dravabiel",
+        "to": [
+          "https://www.w3.org/ns/activitystreams#Public"
+        ],
+        "cc": [
+          "https://localhost.jambor.dev/users/fadacus_dravabiel/followers",
+          "https://lemming.jambor.dev/c/activitypub",
+          "https://lemming.jambor.dev/c/activitypub/followers"
+        ],
+        "sensitive": false,
+        "atomUri": "https://localhost.jambor.dev/users/fadacus_dravabiel/statuses/110711839173189986",
+        "inReplyToAtomUri": null,
+        "conversation": "tag:localhost.jambor.dev,2023-07-14:objectId=123:objectType=Conversation",
+        "content": "<p><span class=\"h-card\"><a href=\"https://lemming.jambor.dev/c/activitypub\" class=\"u-url mention\">@<span>activitypub</span></a></span> </p><p>Not this again 😀 </p><p>Here is some more paragraphs</p><p>and an image</p>",
+        "contentMap": {
+          "en": "<p><span class=\"h-card\"><a href=\"https://lemming.jambor.dev/c/activitypub\" class=\"u-url mention\">@<span>activitypub</span></a></span> </p><p>Not this again 😀 </p><p>Here is some more paragraphs</p><p>and an image</p>"
+        },
+        "attachment": [
+          {
+            "type": "Document",
+            "mediaType": "image/png",
+            "url": "https://localhost.jambor.dev/system/media_attachments/files/110/711/839/037/411/246/original/1eabf96e3d78d9f5.png",
+            "name": null,
+            "blurhash": "U35}s,sEoMof_Li~afaytkV[WBWBNXi~oMj@",
+            "width": 325,
+            "height": 266
+          }
+        ],
+        "tag": [
+          {
+            "type": "Mention",
+            "href": "https://lemming.jambor.dev/c/activitypub",
+            "name": "@activitypub@lemming.jambor.dev"
+          }
+        ],
+        "replies": {
+          "id": "https://localhost.jambor.dev/users/fadacus_dravabiel/statuses/110711839173189986/replies",
+          "type": "Collection",
+          "first": {
+            "type": "CollectionPage",
+            "next": "https://localhost.jambor.dev/users/fadacus_dravabiel/statuses/110711839173189986/replies?only_other_accounts=true&page=true",
+            "partOf": "https://localhost.jambor.dev/users/fadacus_dravabiel/statuses/110711839173189986/replies",
+            "items": []
+          }
+        }
+      },
+      "signature": {
+        "type": "RsaSignature2017",
+        "creator": "https://localhost.jambor.dev/users/fadacus_dravabiel#main-key",
+        "created": "2023-07-14T09:56:40Z",
+        "signatureValue": "fAILEmjc64+jEL8WsBKT3yBR0FsxKS2baWGwNNI3F/lbDJODkqQDSQTWS1lwxGY2l9Hnt8H5ghjf5R1vN89/ZoB0d5HPzEDPcG2dukWkPVH4i1PPtkDF0hDgZSI+Vv3bE6csA2FyXg1P9iMb8ymlzYFZ8xVPLdm3vzz3v6tquAgyYcVuGoiiJjaPE19VHsj9xRPqG/p4DxRrwKgn40QZfX8T8g1ffLnWzt6ESBupqwTQKCoDP6IRQSIquc02xMAEmKNQq6m9Av5ctsScuy0AfC/sxjm3QAX1UtuCqXQfT3mENBrNhI1zag9Vj3MznBKaBpR8Y83hB3+gHTvEG40QZg=="
+      }
+    },
+    "timestamp": "2023-07-14T09:56:40Z"
+  },
+  {
+    "type": "inbound",
+    "sender": "https://lemming.jambor.dev/c/activitypub",
+    "path": "https://localhost.jambor.dev/inbox",
+    "data": {
+      "@context": [
+        "https://www.w3.org/ns/activitystreams",
+        "https://w3id.org/security/v1",
+        {
+          "lemmy": "https://join-lemmy.org/ns#",
+          "litepub": "http://litepub.social/ns#",
+          "pt": "https://joinpeertube.org/ns#",
+          "sc": "http://schema.org/",
+          "ChatMessage": "litepub:ChatMessage",
+          "commentsEnabled": "pt:commentsEnabled",
+          "sensitive": "as:sensitive",
+          "matrixUserId": "lemmy:matrixUserId",
+          "postingRestrictedToMods": "lemmy:postingRestrictedToMods",
+          "removeData": "lemmy:removeData",
+          "stickied": "lemmy:stickied",
+          "moderators": {
+            "@type": "@id",
+            "@id": "lemmy:moderators"
+          },
+          "expires": "as:endTime",
+          "distinguished": "lemmy:distinguished",
+          "language": "sc:inLanguage",
+          "identifier": "sc:identifier"
+        }
+      ],
+      "actor": "https://lemming.jambor.dev/c/activitypub",
+      "to": [
+        "https://www.w3.org/ns/activitystreams#Public"
+      ],
+      "object": {
+        "id": "https://localhost.jambor.dev/users/fadacus_dravabiel/statuses/110711839173189986/activity",
+        "actor": "https://localhost.jambor.dev/users/fadacus_dravabiel",
+        "type": "Create",
+        "published": "2023-07-14T09:56:40Z",
+        "to": [
+          "https://www.w3.org/ns/activitystreams#Public"
+        ],
+        "cc": [
+          "https://localhost.jambor.dev/users/fadacus_dravabiel/followers",
+          "https://lemming.jambor.dev/c/activitypub",
+          "https://lemming.jambor.dev/c/activitypub/followers"
+        ],
+        "object": {
+          "id": "https://localhost.jambor.dev/users/fadacus_dravabiel/statuses/110711839173189986",
+          "type": "Note",
+          "summary": null,
+          "inReplyTo": null,
+          "published": "2023-07-14T09:56:40Z",
+          "url": "https://localhost.jambor.dev/@fadacus_dravabiel/110711839173189986",
+          "attributedTo": "https://localhost.jambor.dev/users/fadacus_dravabiel",
+          "to": [
+            "https://www.w3.org/ns/activitystreams#Public"
+          ],
+          "cc": [
+            "https://localhost.jambor.dev/users/fadacus_dravabiel/followers",
+            "https://lemming.jambor.dev/c/activitypub",
+            "https://lemming.jambor.dev/c/activitypub/followers"
+          ],
+          "sensitive": false,
+          "atomUri": "https://localhost.jambor.dev/users/fadacus_dravabiel/statuses/110711839173189986",
+          "inReplyToAtomUri": null,
+          "conversation": "tag:localhost.jambor.dev,2023-07-14:objectId=123:objectType=Conversation",
+          "content": "<p><span class=\"h-card\"><a href=\"https://lemming.jambor.dev/c/activitypub\" class=\"u-url mention\">@<span>activitypub</span></a></span> </p><p>Not this again 😀 </p><p>Here is some more paragraphs</p><p>and an image</p>",
+          "contentMap": {
+            "en": "<p><span class=\"h-card\"><a href=\"https://lemming.jambor.dev/c/activitypub\" class=\"u-url mention\">@<span>activitypub</span></a></span> </p><p>Not this again 😀 </p><p>Here is some more paragraphs</p><p>and an image</p>"
+          },
+          "attachment": [
+            {
+              "type": "Document",
+              "mediaType": "image/png",
+              "url": "https://localhost.jambor.dev/system/media_attachments/files/110/711/839/037/411/246/original/1eabf96e3d78d9f5.png",
+              "name": null,
+              "blurhash": "U35}s,sEoMof_Li~afaytkV[WBWBNXi~oMj@",
+              "width": 325,
+              "height": 266
+            }
+          ],
+          "tag": [
+            {
+              "type": "Mention",
+              "href": "https://lemming.jambor.dev/c/activitypub",
+              "name": "@activitypub@lemming.jambor.dev"
+            }
+          ],
+          "replies": {
+            "id": "https://localhost.jambor.dev/users/fadacus_dravabiel/statuses/110711839173189986/replies",
+            "type": "Collection",
+            "first": {
+              "type": "CollectionPage",
+              "next": "https://localhost.jambor.dev/users/fadacus_dravabiel/statuses/110711839173189986/replies?only_other_accounts=true&page=true",
+              "partOf": "https://localhost.jambor.dev/users/fadacus_dravabiel/statuses/110711839173189986/replies",
+              "items": []
+            }
+          }
+        },
+        "signature": {
+          "type": "RsaSignature2017",
+          "creator": "https://localhost.jambor.dev/users/fadacus_dravabiel#main-key",
+          "created": "2023-07-14T09:56:40Z",
+          "signatureValue": "fAILEmjc64+jEL8WsBKT3yBR0FsxKS2baWGwNNI3F/lbDJODkqQDSQTWS1lwxGY2l9Hnt8H5ghjf5R1vN89/ZoB0d5HPzEDPcG2dukWkPVH4i1PPtkDF0hDgZSI+Vv3bE6csA2FyXg1P9iMb8ymlzYFZ8xVPLdm3vzz3v6tquAgyYcVuGoiiJjaPE19VHsj9xRPqG/p4DxRrwKgn40QZfX8T8g1ffLnWzt6ESBupqwTQKCoDP6IRQSIquc02xMAEmKNQq6m9Av5ctsScuy0AfC/sxjm3QAX1UtuCqXQfT3mENBrNhI1zag9Vj3MznBKaBpR8Y83hB3+gHTvEG40QZg=="
+        }
+      },
+      "cc": [
+        "https://lemming.jambor.dev/c/activitypub/followers"
+      ],
+      "type": "Announce",
+      "id": "https://lemming.jambor.dev/activities/announce/0f7ebe0a-53d2-4971-b294-060f9e88315a"
+    },
+    "timestamp": "2023-07-14T09:56:44Z"
+  },
+  {
+    "type": "outbound",
+    "sender": "https://localhost.jambor.dev/users/fagusna_vuleis",
+    "path": "https://lemming.jambor.dev/inbox",
+    "data": {
+      "@context": [
+        "https://www.w3.org/ns/activitystreams",
+        {
+          "ostatus": "http://ostatus.org#",
+          "atomUri": "ostatus:atomUri",
+          "inReplyToAtomUri": "ostatus:inReplyToAtomUri",
+          "conversation": "ostatus:conversation",
+          "sensitive": "as:sensitive",
+          "toot": "http://joinmastodon.org/ns#",
+          "votersCount": "toot:votersCount"
+        }
+      ],
+      "id": "https://localhost.jambor.dev/users/fagusna_vuleis/statuses/110716754978090294/activity",
+      "type": "Create",
+      "actor": "https://localhost.jambor.dev/users/fagusna_vuleis",
+      "published": "2023-07-15T06:46:49Z",
+      "to": [
+        "https://www.w3.org/ns/activitystreams#Public"
+      ],
+      "cc": [
+        "https://localhost.jambor.dev/users/fagusna_vuleis/followers",
+        "https://lemming.jambor.dev/c/activitypub",
+        "https://lemming.jambor.dev/c/activitypub/followers"
+      ],
+      "object": {
+        "id": "https://localhost.jambor.dev/users/fagusna_vuleis/statuses/110716754978090294",
+        "type": "Note",
+        "summary": null,
+        "inReplyTo": null,
+        "published": "2023-07-15T06:46:49Z",
+        "url": "https://localhost.jambor.dev/@fagusna_vuleis/110716754978090294",
+        "attributedTo": "https://localhost.jambor.dev/users/fagusna_vuleis",
+        "to": [
+          "https://www.w3.org/ns/activitystreams#Public"
+        ],
+        "cc": [
+          "https://localhost.jambor.dev/users/fagusna_vuleis/followers",
+          "https://lemming.jambor.dev/c/activitypub",
+          "https://lemming.jambor.dev/c/activitypub/followers"
+        ],
+        "sensitive": false,
+        "atomUri": "https://localhost.jambor.dev/users/fagusna_vuleis/statuses/110716754978090294",
+        "inReplyToAtomUri": null,
+        "conversation": "tag:localhost.jambor.dev,2023-07-15:objectId=127:objectType=Conversation",
+        "content": "<p><span class=\"h-card\"><a href=\"https://lemming.jambor.dev/c/activitypub\" class=\"u-url mention\">@<span>activitypub</span></a></span> Hi<br />Linebreak without space</p><p>Linebreak with space</p>",
+        "contentMap": {
+          "en": "<p><span class=\"h-card\"><a href=\"https://lemming.jambor.dev/c/activitypub\" class=\"u-url mention\">@<span>activitypub</span></a></span> Hi<br />Linebreak without space</p><p>Linebreak with space</p>"
+        },
+        "attachment": [],
+        "tag": [
+          {
+            "type": "Mention",
+            "href": "https://lemming.jambor.dev/c/activitypub",
+            "name": "@activitypub@lemming.jambor.dev"
+          }
+        ],
+        "replies": {
+          "id": "https://localhost.jambor.dev/users/fagusna_vuleis/statuses/110716754978090294/replies",
+          "type": "Collection",
+          "first": {
+            "type": "CollectionPage",
+            "next": "https://localhost.jambor.dev/users/fagusna_vuleis/statuses/110716754978090294/replies?only_other_accounts=true&page=true",
+            "partOf": "https://localhost.jambor.dev/users/fagusna_vuleis/statuses/110716754978090294/replies",
+            "items": []
+          }
+        }
+      },
+      "signature": {
+        "type": "RsaSignature2017",
+        "creator": "https://localhost.jambor.dev/users/fagusna_vuleis#main-key",
+        "created": "2023-07-15T06:46:50Z",
+        "signatureValue": "eb9JRwPJVTh4ci7KhhVmTw07Ji2SKZ+MRJOQ47cba289X5EHE72Y7s49AEivwNmfyDaWu3vk8rgs4JeakB4x36b7q05mRGWzIbnYB9ouSDW6qEFSvXqQSVMXiupOxrIEp5Opo1yqpsdH43EqvwtUJW8NvxMnKaBFsLr2Veub1JWJ7OxEkGazGcjtkZzHIDySHTaQyWjIsYzGIKsYcjAhn5d/z2kX+QWKYE34RCoSlpDbxQEE0tlbCcIz6rGQhPJuPnhgaAkqPP8xUeK3tg60tJQpOvDBYP0lY5YrDBOkyoydwA2VZuzsADln6U00LYx1BW40TJjlRXHsNn+ATLUSZQ=="
+      }
+    },
+    "timestamp": "2023-07-15T06:46:50Z"
+  },
+  {
+    "type": "inbound",
+    "sender": "https://lemming.jambor.dev/c/activitypub",
+    "path": "https://localhost.jambor.dev/inbox",
+    "data": {
+      "@context": [
+        "https://www.w3.org/ns/activitystreams",
+        "https://w3id.org/security/v1",
+        {
+          "lemmy": "https://join-lemmy.org/ns#",
+          "litepub": "http://litepub.social/ns#",
+          "pt": "https://joinpeertube.org/ns#",
+          "sc": "http://schema.org/",
+          "ChatMessage": "litepub:ChatMessage",
+          "commentsEnabled": "pt:commentsEnabled",
+          "sensitive": "as:sensitive",
+          "matrixUserId": "lemmy:matrixUserId",
+          "postingRestrictedToMods": "lemmy:postingRestrictedToMods",
+          "removeData": "lemmy:removeData",
+          "stickied": "lemmy:stickied",
+          "moderators": {
+            "@type": "@id",
+            "@id": "lemmy:moderators"
+          },
+          "expires": "as:endTime",
+          "distinguished": "lemmy:distinguished",
+          "language": "sc:inLanguage",
+          "identifier": "sc:identifier"
+        }
+      ],
+      "actor": "https://lemming.jambor.dev/c/activitypub",
+      "to": [
+        "https://www.w3.org/ns/activitystreams#Public"
+      ],
+      "object": {
+        "id": "https://localhost.jambor.dev/users/fagusna_vuleis/statuses/110716754978090294/activity",
+        "actor": "https://localhost.jambor.dev/users/fagusna_vuleis",
+        "type": "Create",
+        "published": "2023-07-15T06:46:49Z",
+        "to": [
+          "https://www.w3.org/ns/activitystreams#Public"
+        ],
+        "cc": [
+          "https://localhost.jambor.dev/users/fagusna_vuleis/followers",
+          "https://lemming.jambor.dev/c/activitypub",
+          "https://lemming.jambor.dev/c/activitypub/followers"
+        ],
+        "object": {
+          "id": "https://localhost.jambor.dev/users/fagusna_vuleis/statuses/110716754978090294",
+          "type": "Note",
+          "summary": null,
+          "inReplyTo": null,
+          "published": "2023-07-15T06:46:49Z",
+          "url": "https://localhost.jambor.dev/@fagusna_vuleis/110716754978090294",
+          "attributedTo": "https://localhost.jambor.dev/users/fagusna_vuleis",
+          "to": [
+            "https://www.w3.org/ns/activitystreams#Public"
+          ],
+          "cc": [
+            "https://localhost.jambor.dev/users/fagusna_vuleis/followers",
+            "https://lemming.jambor.dev/c/activitypub",
+            "https://lemming.jambor.dev/c/activitypub/followers"
+          ],
+          "sensitive": false,
+          "atomUri": "https://localhost.jambor.dev/users/fagusna_vuleis/statuses/110716754978090294",
+          "inReplyToAtomUri": null,
+          "conversation": "tag:localhost.jambor.dev,2023-07-15:objectId=127:objectType=Conversation",
+          "content": "<p><span class=\"h-card\"><a href=\"https://lemming.jambor.dev/c/activitypub\" class=\"u-url mention\">@<span>activitypub</span></a></span> Hi<br />Linebreak without space</p><p>Linebreak with space</p>",
+          "contentMap": {
+            "en": "<p><span class=\"h-card\"><a href=\"https://lemming.jambor.dev/c/activitypub\" class=\"u-url mention\">@<span>activitypub</span></a></span> Hi<br />Linebreak without space</p><p>Linebreak with space</p>"
+          },
+          "attachment": [],
+          "tag": [
+            {
+              "type": "Mention",
+              "href": "https://lemming.jambor.dev/c/activitypub",
+              "name": "@activitypub@lemming.jambor.dev"
+            }
+          ],
+          "replies": {
+            "id": "https://localhost.jambor.dev/users/fagusna_vuleis/statuses/110716754978090294/replies",
+            "type": "Collection",
+            "first": {
+              "type": "CollectionPage",
+              "next": "https://localhost.jambor.dev/users/fagusna_vuleis/statuses/110716754978090294/replies?only_other_accounts=true&page=true",
+              "partOf": "https://localhost.jambor.dev/users/fagusna_vuleis/statuses/110716754978090294/replies",
+              "items": []
+            }
+          }
+        },
+        "signature": {
+          "type": "RsaSignature2017",
+          "creator": "https://localhost.jambor.dev/users/fagusna_vuleis#main-key",
+          "created": "2023-07-15T06:46:50Z",
+          "signatureValue": "eb9JRwPJVTh4ci7KhhVmTw07Ji2SKZ+MRJOQ47cba289X5EHE72Y7s49AEivwNmfyDaWu3vk8rgs4JeakB4x36b7q05mRGWzIbnYB9ouSDW6qEFSvXqQSVMXiupOxrIEp5Opo1yqpsdH43EqvwtUJW8NvxMnKaBFsLr2Veub1JWJ7OxEkGazGcjtkZzHIDySHTaQyWjIsYzGIKsYcjAhn5d/z2kX+QWKYE34RCoSlpDbxQEE0tlbCcIz6rGQhPJuPnhgaAkqPP8xUeK3tg60tJQpOvDBYP0lY5YrDBOkyoydwA2VZuzsADln6U00LYx1BW40TJjlRXHsNn+ATLUSZQ=="
+        }
+      },
+      "cc": [
+        "https://lemming.jambor.dev/c/activitypub/followers"
+      ],
+      "type": "Announce",
+      "id": "https://lemming.jambor.dev/activities/announce/83312476-304a-4e66-877a-1e9a2cbeddec"
+    },
+    "timestamp": "2023-07-15T06:46:51Z"
+  },
+  {
+    "type": "inbound",
+    "sender": "https://lemming.jambor.dev/c/activitypub",
+    "path": "https://localhost.jambor.dev/inbox",
+    "data": {
+      "@context": [
+        "https://www.w3.org/ns/activitystreams",
+        "https://w3id.org/security/v1",
+        {
+          "lemmy": "https://join-lemmy.org/ns#",
+          "litepub": "http://litepub.social/ns#",
+          "pt": "https://joinpeertube.org/ns#",
+          "sc": "http://schema.org/",
+          "ChatMessage": "litepub:ChatMessage",
+          "commentsEnabled": "pt:commentsEnabled",
+          "sensitive": "as:sensitive",
+          "matrixUserId": "lemmy:matrixUserId",
+          "postingRestrictedToMods": "lemmy:postingRestrictedToMods",
+          "removeData": "lemmy:removeData",
+          "stickied": "lemmy:stickied",
+          "moderators": {
+            "@type": "@id",
+            "@id": "lemmy:moderators"
+          },
+          "expires": "as:endTime",
+          "distinguished": "lemmy:distinguished",
+          "language": "sc:inLanguage",
+          "identifier": "sc:identifier"
+        }
+      ],
+      "actor": "https://lemming.jambor.dev/c/activitypub",
+      "to": [
+        "https://www.w3.org/ns/activitystreams#Public"
+      ],
+      "object": {
+        "id": "https://localhost.jambor.dev/users/fagusna_vuleis/statuses/110716754978090294",
+        "actor": "https://localhost.jambor.dev/users/fagusna_vuleis",
+        "type": "Note",
+        "attributedTo": "https://localhost.jambor.dev/users/fagusna_vuleis",
+        "to": [
+          "https://www.w3.org/ns/activitystreams#Public"
+        ],
+        "cc": [
+          "https://localhost.jambor.dev/users/fagusna_vuleis/followers",
+          "https://lemming.jambor.dev/c/activitypub",
+          "https://lemming.jambor.dev/c/activitypub/followers"
+        ],
+        "content": "<p><span class=\"h-card\"><a href=\"https://lemming.jambor.dev/c/activitypub\" class=\"u-url mention\">@<span>activitypub</span></a></span> Hi<br />Linebreak without space</p><p>Linebreak with space</p>",
+        "attachment": [],
+        "sensitive": false,
+        "published": "2023-07-15T06:46:49+00:00"
+      },
+      "cc": [
+        "https://lemming.jambor.dev/c/activitypub/followers"
+      ],
+      "type": "Announce",
+      "id": "https://lemming.jambor.dev/activities/announce/b2a6eaa3-090f-4fd7-a1e7-9dcb17795e35"
+    },
+    "timestamp": "2023-07-15T06:46:51Z"
+  }
+]

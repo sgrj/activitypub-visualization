@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import DOMPurify from 'dompurify';
+
 import JsonViewer from './json-viewer';
 
 import './input.css';
@@ -23,7 +25,14 @@ function ActivityDetails({ activity }: { activity: IActivity }) {
       case 'Question':
       case 'Page':
         return (
-          <div className='object font-mono overflow-auto'>{activity.name || activity.content}</div>
+          <div
+            className='object font-mono overflow-auto [&>p:first-child]:mt-0 [&>p:last-child]:mb-0 [&>p]:my-4'
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(activity.name || activity.content, {
+                ALLOWED_TAGS: ['p', 'a', 'br'],
+              }),
+            }}
+          />
         );
       case 'Person':
         return <div className='object overflow-auto'>{activity.id}</div>;

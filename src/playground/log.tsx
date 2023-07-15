@@ -15,6 +15,7 @@ import logsLemmyAnnounce from './logs/lemmy-announce.json';
 import logsLemmyCreate from './logs/lemmy-create.json';
 import logsDislike from './logs/dislike.json';
 import logsCreatePage from './logs/create-page.json';
+import logsCreateWithHtml from './logs/create-with-html.json';
 
 export default function Log() {
   const { logName } = useParams();
@@ -40,6 +41,8 @@ export default function Log() {
       return logsDislike;
     } else if (logName == 'create-page') {
       return logsCreatePage;
+    } else if (logName == 'create-with-html') {
+      return logsCreateWithHtml;
     } else {
       return [];
     }
