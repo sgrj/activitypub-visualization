@@ -56,7 +56,7 @@ export default function ActivityPubExplorer({
 
     const url =
       match != null
-        ? `https://${match.groups.domain}/.well-known/webfinger?resource=acct:${match.groups.username}@${match.groups.domain}`
+        ? `https://${match.groups.domain}/.well-known/webfinger?resource=acct:${match.groups.username}%40${match.groups.domain}`
         : urlOrFullMention;
 
     setHistory([
