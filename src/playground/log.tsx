@@ -14,6 +14,7 @@ import logsCreateUpdateDelete from './logs/create-update-delete.json';
 import logsLemmyAnnounce from './logs/lemmy-announce.json';
 import logsLemmyCreate from './logs/lemmy-create.json';
 import logsDislike from './logs/dislike.json';
+import logsLock from './logs/lock.json';
 import logsCreatePage from './logs/create-page.json';
 import logsCreateWithHtml from './logs/create-with-html.json';
 
@@ -39,6 +40,8 @@ export default function Log() {
       return logsLemmyCreate;
     } else if (logName == 'dislike') {
       return logsDislike;
+    } else if (logName == 'lock') {
+      return logsLock;
     } else if (logName == 'create-page') {
       return logsCreatePage;
     } else if (logName == 'create-with-html') {

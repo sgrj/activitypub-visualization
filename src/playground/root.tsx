@@ -40,6 +40,7 @@ export default function Root() {
               'lemmy-announce',
               'lemmy-create',
               'dislike',
+              'lock',
               'create-page',
               'create-with-html',
             ].map((logName) => (
