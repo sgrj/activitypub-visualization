@@ -1,0 +1,17 @@
+@import '~codemirror/lib/codemirror.css';
+
+.cm-s-default  { font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;}
+.cm-s-default.CodeMirror { height: 100%; background: #282c34; color: #DBEAFE; }
+
+.cm-s-default span.cm-string.cm-property { color: #93c5fd; } /* blue-300 */
+.cm-s-default span.cm-string { color: #86efac; } /* green-400 */
+
+.cm-s-default span.cm-keyword { color: #facc15; } /* yellow-400 */
+.cm-s-default span.cm-atom { color: #c084fc; } /* purple-400 */
+.cm-s-default span.cm-variable { color: #60a5fa; } /* blue-400 */
+.cm-s-default span.cm-comment { color: #9ca3af; } /* gray-400 */
+
+.cm-s-default span.cm-meta { color: white; }
+
+.cm-s-default div.CodeMirror-selected { background: #214283; }
+.cm-s-default .CodeMirror-cursor { border-left: 1px solid #A9B7C6; }
