@@ -8,6 +8,7 @@ import '../font.css';
 import Root from './root';
 import Log from './log';
 import Explorer from './explorer';
+import Workshop from './workshop';
 import Colors from './colors';
 
 const elt = document.createElement('div');
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: 'explorer/:data',
         element: <Explorer />,
+      },
+      {
+        path: 'workshop/:data',
+        element: <Workshop />,
       },
       {
         path: 'colors',
