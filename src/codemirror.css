@@ -1,17 +1,29 @@
 @import '~codemirror/lib/codemirror.css';
 
 .cm-s-default  { font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;}
-.cm-s-default.CodeMirror { height: 100%; background: #282c34; color: #DBEAFE; }
 
-.cm-s-default span.cm-string.cm-property { color: #93c5fd; } /* blue-300 */
-.cm-s-default span.cm-string { color: #86efac; } /* green-400 */
+.cm-s-default.CodeMirror { height: 100%; }
 
-.cm-s-default span.cm-keyword { color: #facc15; } /* yellow-400 */
-.cm-s-default span.cm-atom { color: #c084fc; } /* purple-400 */
-.cm-s-default span.cm-variable { color: #60a5fa; } /* blue-400 */
-.cm-s-default span.cm-comment { color: #9ca3af; } /* gray-400 */
+.dark .cm-s-default.CodeMirror { background: #282c37; } /* mastodon-gray-900 */
+.dark .cm-s-default.CodeMirror { color: #dbeafe; } /* blue-100 */
+.dark .cm-s-default span.cm-string.cm-property { color: #93c5fd; } /* blue-300 */
+.dark .cm-s-default span.cm-string { color: #86efac; } /* green-300 */
+.dark .cm-s-default span.cm-meta { color: #bfdbfe; } /* blue-200 */
+.dark .cm-s-default span.cm-atom { color: #c084fc; } /* purple-400 */
+.dark .cm-s-default span.cm-comment { color: #f87171; } /* red-400 */
+.dark .cm-s-default span.cm-number { color: #c084fc; } /* purple-400 */
+.dark .cm-s-default span.cm-variable { color: #f87171; } /* red-400 */
+.dark .cm-s-default div.CodeMirror-selected { background: #214283; }
+.dark .cm-s-default .CodeMirror-cursor { border-left: 1px solid #A9B7C6; }
 
-.cm-s-default span.cm-meta { color: white; }
-
-.cm-s-default div.CodeMirror-selected { background: #214283; }
-.cm-s-default .CodeMirror-cursor { border-left: 1px solid #A9B7C6; }
+.cm-s-default.CodeMirror { background: #d1d5db; } /* mastodon-gray-900 */
+.cm-s-default.CodeMirror { color: #1e3a8a; } /* blue-900 */
+.cm-s-default span.cm-string.cm-property { color: #1d4ed8; } /* blue-700 */
+.cm-s-default span.cm-string { color: #15803d; } /* green-700 */
+.cm-s-default span.cm-meta { color: #3b82f6; } /* blue-500 */
+.cm-s-default span.cm-atom { color: #9333ea; } /* purple-600 */
+.cm-s-default span.cm-comment { color: #b91c1c; } /* red-700 */
+.cm-s-default span.cm-number { color: #9333ea; } /* purple-600 */
+.cm-s-default span.cm-variable { color: #b91c1c; } /* red-700 */
+.cm-s-default div.CodeMirror-selected { background: #9ca3af; } /* blue-100 */
+.cm-s-default .CodeMirror-cursor { border-left: 1px solid #374151; } /* gray-700 */
