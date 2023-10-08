@@ -20,7 +20,13 @@ export default function Workshop() {
   return (
     <ActivityWorkshop
       key={data}
-      sendMethod={async () => fetch('http://localhost:3000/api/v1/activity')}
+      sendMethod={async ({ inboxUrl, activity }: { inboxUrl: string; activity: string }) =>
+        fetch('http://localhost:3000/api/v1/activity', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ inbox_url: inboxUrl, activity }),
+        })
+      }
       initialActivityJson={initialActivityJson()}
     />
   );

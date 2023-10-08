@@ -15,13 +15,15 @@ export default function ActivityWorkshop({
   initialActivityJson = null,
   initialInboxUrl = '',
 }: {
-  sendMethod: () => Promise<Response>;
+  sendMethod: ({ inboxUrl, activity }: { inboxUrl: string; activity: string }) => Promise<Response>;
   initialActivityJson?: object;
   initialInboxUrl?: string;
 }) {
   const [inboxUrl, setInboxUrl] = useState(initialInboxUrl);
 
-  const [activityJson, setActivityJson] = useState(JSON.stringify(initialActivityJson, null, 2));
+  const [activityJson, setActivityJson] = useState(
+    initialActivityJson == null ? '' : JSON.stringify(initialActivityJson, null, 2)
+  );
 
   return (
     <div className='m-2 dark:text-white'>
@@ -44,6 +46,7 @@ export default function ActivityWorkshop({
             'dark:text-mastodon-gray-500',
             'text-mastodon-gray-900',
             'dark:placeholder:text-mastodon-gray-600',
+            'placeholder:italic',
           ].join(' ')}
           type='text'
           placeholder='e.g. https://activitypub.academy/users/alice/inbox'
@@ -57,7 +60,7 @@ export default function ActivityWorkshop({
         <div className='my-1 font-medium'>Activity</div>
 
         <CodeMirror
-          className='h-full w-full overflow-auto bg-blue-400'
+          className='h-[94rem] max-h-[75vh] w-full overflow-auto rounded dark:border-mastodon-gray-800'
           value={activityJson}
           onBeforeChange={(editor, data, value) => {
             setActivityJson(value);
@@ -72,6 +75,14 @@ export default function ActivityWorkshop({
             autocorrect: false,
           }}
         />
+      </div>
+      <div className='my-4'>
+        <button
+          className='font-[Roboto] text-base px-4 py-2 rounded bg-mastodon-primary text-white font-medium cursor-pointer'
+          onClick={() => sendMethod({ inboxUrl, activity: activityJson })}
+        >
+          Publish!
+        </button>
       </div>
     </div>
   );
