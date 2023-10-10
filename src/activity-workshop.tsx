@@ -25,8 +25,7 @@ export default function ActivityWorkshop({
     initialActivityJson == null ? '' : JSON.stringify(initialActivityJson, null, 2)
   );
 
-  // const [errorMessage, setErrorMessage] = useState(null);
-  const [errorMessage, setErrorMessage] = useState('The activity must be a valid JSON object.');
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const [loading, setLoading] = useState(false);
 
@@ -84,7 +83,18 @@ export default function ActivityWorkshop({
         <div className='my-1 font-medium'>Activity</div>
 
         <CodeMirror
-          className='h-[94rem] max-h-[75vh] w-full overflow-auto rounded dark:border-mastodon-gray-800'
+          className={[
+            'box-border',
+            'h-[94rem]',
+            'max-h-[75vh]',
+            'w-full',
+            'overflow-auto',
+            'rounded',
+            'border',
+            'border-solid',
+            'dark:border-mastodon-gray-800',
+            'border-mastodon-gray-500',
+          ].join(' ')}
           value={activityJson}
           onBeforeChange={(editor, data, value) => {
             setErrorMessage(null);
@@ -103,10 +113,13 @@ export default function ActivityWorkshop({
       </div>
       <div className='my-4 flex flex-row items-center'>
         <button
-          className='font-[Roboto] text-base px-4 py-2 rounded bg-mastodon-primary text-white font-medium cursor-pointer'
+          className='font-[Roboto] text-base px-4 py-2 rounded bg-mastodon-primary text-white font-medium cursor-pointer disabled:bg-mastodon-gray-500 dark:disabled:bg-mastodon-gray-800 disabled:cursor-default'
           onClick={() => send()}
+          disabled={loading}
         >
-          {loading ? <LoadingIndicator /> : 'Publish!'}
+          <div className='h-[24px] w-[60px] flex flex-row items-center justify-center'>
+            {loading ? <LoadingIndicator small colorDefinition='white' /> : 'Publish!'}
+          </div>
         </button>
         <div className='mx-4 dark:text-red-400 text-red-700'>{errorMessage}</div>
       </div>

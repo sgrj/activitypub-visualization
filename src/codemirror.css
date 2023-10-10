@@ -16,7 +16,7 @@
 .dark .cm-s-default div.CodeMirror-selected { background: #214283; }
 .dark .cm-s-default .CodeMirror-cursor { border-left: 1px solid #A9B7C6; }
 
-.cm-s-default.CodeMirror { background: #d1d5db; } /* mastodon-gray-900 */
+.cm-s-default.CodeMirror { background: #d9e1e8; } /* mastodon-gray-300 */
 .cm-s-default.CodeMirror { color: #1e3a8a; } /* blue-900 */
 .cm-s-default span.cm-string.cm-property { color: #1d4ed8; } /* blue-700 */
 .cm-s-default span.cm-string { color: #15803d; } /* green-700 */
