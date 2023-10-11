@@ -85,12 +85,16 @@ function LogEvent({
   onLinkClick,
   showExplorerLink = false,
   onExplorerLinkClick,
+  showWorkshopLink = false,
+  onWorkshopLinkClick,
 }: {
   event: ILogEvent;
   clickableLinks?: boolean;
   onLinkClick?: (url: string) => void;
   showExplorerLink?: boolean;
   onExplorerLinkClick?: (json: IActivity) => void;
+  showWorkshopLink?: boolean;
+  onWorkshopLinkClick?: (json: ILogEvent) => void;
 }) {
   const [showSource, setShowSource] = useState(false);
 
@@ -130,6 +134,14 @@ function LogEvent({
               open in explorer
             </a>
           )}
+          {showSource && showWorkshopLink && (
+            <a
+              className='border-0 p-0 bg-inherit underline hover:no-underline text-mastodon-gray-600 cursor-pointer'
+              onClick={() => onWorkshopLinkClick(event)}
+            >
+              open in workshop
+            </a>
+          )}
         </div>
       </div>
       {showSource && (
@@ -145,12 +157,16 @@ export default function ActivityPubVisualization({
   onLinkClick,
   showExplorerLink = false,
   onExplorerLinkClick,
+  showWorkshopLink = false,
+  onWorkshopLinkClick,
 }: {
   logs: Array<ILogEvent>;
   clickableLinks?: boolean;
   onLinkClick?: (url: string) => void;
   showExplorerLink?: boolean;
   onExplorerLinkClick?: (json: IActivity) => void;
+  showWorkshopLink?: boolean;
+  onWorkshopLinkClick?: (json: ILogEvent) => void;
 }) {
   return (
     <div className='flex flex-col'>
@@ -164,6 +180,8 @@ export default function ActivityPubVisualization({
             onLinkClick={onLinkClick}
             showExplorerLink={showExplorerLink}
             onExplorerLinkClick={onExplorerLinkClick}
+            showWorkshopLink={showWorkshopLink}
+            onWorkshopLinkClick={onWorkshopLinkClick}
           />
         ))}
     </div>

@@ -56,6 +56,8 @@ export default function Log() {
       logs={logs() as Array<ILogEvent>}
       showExplorerLink={true}
       onExplorerLinkClick={(data) => console.log(data)}
+      showWorkshopLink={true}
+      onWorkshopLinkClick={(data) => console.log(data)}
     />
   );
 }
