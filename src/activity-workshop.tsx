@@ -92,6 +92,8 @@ export default function ActivityWorkshop({
             'placeholder:italic',
           ].join(' ')}
           type='text'
+          spellCheck='false'
+          autoComplete='off'
           placeholder='For example https://activitypub.academy/users/alice/inbox'
           value={inboxUrl}
           onChange={(e) => {
