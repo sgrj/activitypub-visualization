@@ -29,10 +29,25 @@ export default function ActivityWorkshop({
 
   const send = async () => {
     setErrorMessage(null);
+
+    try {
+      const url = new URL(inboxUrl);
+      if (url.protocol != 'https:') {
+        throw new Error(`protocol must be https, was ${url.protocol}`);
+      }
+      if (url.host == '') {
+        throw new Error(`host must be specified, was ${url.host}`);
+      }
+    } catch (e) {
+      console.log(e);
+      setErrorMessage('Inbox url must be a valid https URL.');
+      return;
+    }
+
     try {
       JSON.parse(activity);
     } catch (e) {
-      setErrorMessage('The activity must be a valid JSON object.');
+      setErrorMessage('Activity must be a valid JSON object.');
       return;
     }
 
@@ -73,6 +88,7 @@ export default function ActivityWorkshop({
           placeholder='For example https://activitypub.academy/users/alice/inbox'
           value={inboxUrl}
           onChange={(e) => {
+            setErrorMessage(null);
             onInboxUrlChange(e.target.value);
           }}
         />
@@ -113,7 +129,7 @@ export default function ActivityWorkshop({
       </div>
       <div className='my-4 flex flex-row items-center'>
         <button
-          className='font-[Roboto] text-base px-4 py-2 rounded bg-mastodon-primary text-white font-medium cursor-pointer disabled:bg-mastodon-gray-500 dark:disabled:bg-mastodon-gray-800 disabled:cursor-default'
+          className='font-[Roboto] text-base px-4 py-2 rounded bg-mastodon-primary text-white font-medium cursor-pointer disabled:bg-mastodon-gray-500 dark:disabled:bg-mastodon-gray-800 disabled:cursor-default border-0'
           onClick={() => send()}
           disabled={loading}
         >
