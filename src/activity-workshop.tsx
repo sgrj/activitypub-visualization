@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import { Controlled as CodeMirror } from 'react-codemirror2';
 
 import LoadingIndicator from './loading-indicator';
-import JsonViewer from './json-viewer';
 
 import './input.css';
 import './codemirror.css';
 
 import 'codemirror/mode/javascript/javascript';
+import 'codemirror/addon/display/placeholder';
 
 export default function ActivityWorkshop({
   sendMethod,
@@ -49,7 +49,7 @@ export default function ActivityWorkshop({
   };
 
   return (
-    <div className='m-2 dark:text-white'>
+    <div className='h-full m-2 dark:text-white flex flex-col'>
       <div>
         <div className='my-1 font-medium'>Inbox url</div>
         <input
@@ -68,25 +68,26 @@ export default function ActivityWorkshop({
             'bg-mastodon-gray-300',
             'dark:text-mastodon-gray-500',
             'text-mastodon-gray-900',
+            'placeholder:text-mastodon-gray-600',
             'dark:placeholder:text-mastodon-gray-600',
             'placeholder:italic',
           ].join(' ')}
           type='text'
-          placeholder='e.g. https://activitypub.academy/users/alice/inbox'
+          placeholder='For example https://activitypub.academy/users/alice/inbox'
           value={inboxUrl}
           onChange={(e) => {
             setInboxUrl(e.target.value);
           }}
         />
       </div>
-      <div>
+      <div className='flex flex-col h-full'>
         <div className='my-1 font-medium'>Activity</div>
 
         <CodeMirror
           className={[
             'box-border',
-            'h-[94rem]',
-            'max-h-[75vh]',
+            'min-h-[24rem]',
+            'h-full',
             'w-full',
             'overflow-auto',
             'rounded',
@@ -108,6 +109,8 @@ export default function ActivityWorkshop({
             readOnly: false,
             inputStyle: 'textarea', // fix weird behavior on android
             autocorrect: false,
+            placeholder:
+              'Insert your activity JSON here. For example\n{\n  "@context":"https://www.w3.org/ns/activitystreams",\n  "id":"https://activitypub.academy/some-id",\n  "type":"Follow",\n  "actor":"https://activitypub.academy/users/bob",\n  "object":"https://activitypub.academy/users/alice"\n}\n',
           }}
         />
       </div>

@@ -4,6 +4,11 @@
 
 .cm-s-default.CodeMirror { height: 100%; }
 
+.CodeMirror pre.CodeMirror-placeholder.CodeMirror-line-like {
+  font-style: italic;
+  color: #606984;
+}
+
 .dark .cm-s-default.CodeMirror { background: #282c37; } /* mastodon-gray-900 */
 .dark .cm-s-default.CodeMirror { color: #dbeafe; } /* blue-100 */
 .dark .cm-s-default span.cm-string.cm-property { color: #93c5fd; } /* blue-300 */
