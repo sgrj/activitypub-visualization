@@ -24,6 +24,8 @@ export default function ActivityWorkshop({
   onInboxUrlChange: (inboxUrl: string) => void;
 }) {
   const [errorMessage, setErrorMessage] = useState(null);
+  const [activityErrorMessage, setActivityErrorMessage] = useState(null);
+  const [inboxUrlErrorMessage, setInboxUrlErrorMessage] = useState(null);
 
   const [loading, setLoading] = useState(false);
 
@@ -39,15 +41,14 @@ export default function ActivityWorkshop({
         throw new Error(`host must be specified, was ${url.host}`);
       }
     } catch (e) {
-      console.log(e);
-      setErrorMessage('Inbox url must be a valid https URL.');
+      setInboxUrlErrorMessage('Must be a valid https URL');
       return;
     }
 
     try {
       JSON.parse(activity);
     } catch (e) {
-      setErrorMessage('Activity must be a valid JSON object.');
+      setActivityErrorMessage('Must be a valid JSON object');
       return;
     }
 
@@ -63,7 +64,12 @@ export default function ActivityWorkshop({
   return (
     <div className='h-full m-2 dark:text-white flex flex-col'>
       <div>
-        <div className='my-1 font-medium'>Inbox url</div>
+        <div
+          className={`my-1 ${inboxUrlErrorMessage != null ? 'dark:text-red-400 text-red-700' : ''}`}
+        >
+          <span className='font-medium'>Inbox url</span>
+          {inboxUrlErrorMessage && <span className='pl-2'>{inboxUrlErrorMessage}</span>}
+        </div>
         <input
           className={[
             'w-full',
@@ -74,8 +80,9 @@ export default function ActivityWorkshop({
             'border-solid',
             'text-base',
             'leading-[18px]',
-            'dark:border-mastodon-gray-800',
-            'border-mastodon-gray-500',
+            inboxUrlErrorMessage != null
+              ? 'dark:border-red-400 border-red-700'
+              : 'border-mastodon-gray-500 dark:border-mastodon-gray-800',
             'dark:bg-mastodon-gray-900',
             'bg-mastodon-gray-300',
             'dark:text-mastodon-gray-500',
@@ -88,14 +95,19 @@ export default function ActivityWorkshop({
           placeholder='For example https://activitypub.academy/users/alice/inbox'
           value={inboxUrl}
           onChange={(e) => {
+            setInboxUrlErrorMessage(null);
             setErrorMessage(null);
             onInboxUrlChange(e.target.value);
           }}
         />
       </div>
-      <div className='flex flex-col h-full'>
-        <div className='my-1 font-medium'>Activity</div>
-
+      <div className='my-2 flex flex-col h-full'>
+        <div
+          className={`my-1 ${activityErrorMessage != null ? 'dark:text-red-400 text-red-700' : ''}`}
+        >
+          <span className='font-medium'>Activity</span>
+          {activityErrorMessage && <span className='pl-2'>{activityErrorMessage}</span>}
+        </div>
         <CodeMirror
           className={[
             'box-border',
@@ -106,11 +118,13 @@ export default function ActivityWorkshop({
             'rounded',
             'border',
             'border-solid',
-            'dark:border-mastodon-gray-800',
-            'border-mastodon-gray-500',
+            activityErrorMessage != null
+              ? 'dark:border-red-400 border-red-700'
+              : 'border-mastodon-gray-500 dark:border-mastodon-gray-800',
           ].join(' ')}
           value={activity}
           onBeforeChange={(editor, data, value) => {
+            setActivityErrorMessage(null);
             setErrorMessage(null);
             onActivityChange(value);
           }}
