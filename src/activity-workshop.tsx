@@ -11,29 +11,26 @@ import 'codemirror/mode/javascript/javascript';
 import 'codemirror/addon/display/placeholder';
 
 export default function ActivityWorkshop({
-  sendMethod,
-  initialActivityJson = null,
-  initialInboxUrl = '',
+  activity,
+  inboxUrl,
+  onSubmit,
+  onActivityChange,
+  onInboxUrlChange,
 }: {
-  sendMethod: ({ inboxUrl, activity }: { inboxUrl: string; activity: string }) => Promise<Response>;
-  initialActivityJson?: object;
-  initialInboxUrl?: string;
+  activity?: string;
+  inboxUrl?: string;
+  onSubmit: () => Promise<void>;
+  onActivityChange: (activity: string) => void;
+  onInboxUrlChange: (inboxUrl: string) => void;
 }) {
-  const [inboxUrl, setInboxUrl] = useState(initialInboxUrl);
-
-  const [activityJson, setActivityJson] = useState(
-    initialActivityJson == null ? '' : JSON.stringify(initialActivityJson, null, 2)
-  );
-
   const [errorMessage, setErrorMessage] = useState(null);
 
   const [loading, setLoading] = useState(false);
 
   const send = async () => {
     setErrorMessage(null);
-    let activity;
     try {
-      activity = JSON.parse(activityJson);
+      JSON.parse(activity);
     } catch (e) {
       setErrorMessage('The activity must be a valid JSON object.');
       return;
@@ -41,7 +38,7 @@ export default function ActivityWorkshop({
 
     try {
       setLoading(true);
-      await sendMethod({ inboxUrl, activity });
+      await onSubmit();
     } catch (e) {
       setErrorMessage('Failed to send. Please try again.');
     }
@@ -76,7 +73,7 @@ export default function ActivityWorkshop({
           placeholder='For example https://activitypub.academy/users/alice/inbox'
           value={inboxUrl}
           onChange={(e) => {
-            setInboxUrl(e.target.value);
+            onInboxUrlChange(e.target.value);
           }}
         />
       </div>
@@ -96,10 +93,10 @@ export default function ActivityWorkshop({
             'dark:border-mastodon-gray-800',
             'border-mastodon-gray-500',
           ].join(' ')}
-          value={activityJson}
+          value={activity}
           onBeforeChange={(editor, data, value) => {
             setErrorMessage(null);
-            setActivityJson(value);
+            onActivityChange(value);
           }}
           options={{
             mode: { name: 'javascript', json: true },

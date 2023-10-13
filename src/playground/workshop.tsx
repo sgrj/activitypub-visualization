@@ -1,8 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { ActivityWorkshop } from '../index';
-
-import userEntity from './user-entity.json';
 
 import { useParams } from 'react-router-dom';
 
@@ -14,37 +12,30 @@ const follow = {
   object: 'https://activitypub.academy/users/alice',
 };
 
+const defaultInboxUrl = 'https://activitypub.academy/users/alice/inbox';
+
 export default function Workshop() {
   const { data } = useParams();
 
-  const initialActivityJson = () => {
-    if (data == 'initial-data') {
-      return follow;
-    } else {
-      return null;
-    }
-  };
-
-  const initialInboxUrl = () => {
-    if (data == 'initial-data') {
-      return 'https://activitypub.academy/users/alice/inbox';
-    } else {
-      return null;
-    }
-  };
+  const [activity, setActivity] = useState(
+    data == 'initial-data' ? JSON.stringify(follow, null, 2) : ''
+  );
+  const [inboxUrl, setInboxUrl] = useState(data == 'initial-data' ? defaultInboxUrl : '');
 
   return (
     <ActivityWorkshop
       key={data}
-      sendMethod={async ({ inboxUrl, activity }: { inboxUrl: string; activity: any }) =>
-        fetch('http://localhost:3000/api/v1/activity', {
+      activity={activity}
+      inboxUrl={inboxUrl}
+      onActivityChange={(activity) => setActivity(activity)}
+      onInboxUrlChange={(inboxUrl) => setInboxUrl(inboxUrl)}
+      onSubmit={async () => {
+        await fetch('http://localhost:3000/api/v1/activity', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ inbox_url: inboxUrl, activity }),
-        })
-      }
-      initialActivityJson={initialActivityJson()}
-      initialInboxUrl={initialInboxUrl()}
+          body: JSON.stringify({ inbox_url: inboxUrl, activity: JSON.parse(activity) }),
+        });
+      }}
     />
   );
 }
