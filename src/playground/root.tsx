@@ -43,6 +43,7 @@ export default function Root() {
               'lock',
               'create-page',
               'create-with-html',
+              'failed-follow',
             ].map((logName) => (
               <div key={logName} className='py-0.5'>
                 <Link className={linkStyle} to={`/log/${logName}?${searchParams.toString()}`}>

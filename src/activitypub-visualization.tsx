@@ -99,53 +99,61 @@ function LogEvent({
   const [showSource, setShowSource] = useState(false);
 
   return (
-    <div
-      className={`bg-white text-black dark:bg-mastodon-gray-900 dark:text-white flex flex-col p-1 m-1 rounded rounded-tl-none w-4/5 ${
-        event.type == 'inbound' ? 'bg-white' : 'bg-white self-end'
-      }`}
-    >
-      {event.data.actor && (
+    <div className={`w-4/5 ${event.type == 'inbound' ? '' : 'self-end'}`}>
+      <div
+        className={`bg-white text-black dark:bg-mastodon-gray-900 dark:text-white flex flex-col p-1 m-1 rounded rounded-tl-none  ${
+          event.failure && 'border-red-600 dark:border-red-500 border-solid border'
+        }`}
+      >
+        {event.data.actor && (
+          <div>
+            <span className='italic dark:text-gray-400 text-gray-600'>From</span>
+            <span className='dark:text-gray-200 text-gray-800'> {event.sender}</span>
+          </div>
+        )}
         <div>
-          <span className='italic dark:text-gray-400 text-gray-600'>From</span>
-          <span className='dark:text-gray-200 text-gray-800'> {event.sender}</span>
+          <span className='italic dark:text-gray-400 text-gray-600'>Sent to</span>
+          <span className='dark:text-gray-200 text-gray-800'> {event.path}</span>
         </div>
-      )}
-      <div>
-        <span className='italic dark:text-gray-400 text-gray-600'>Sent to</span>
-        <span className='dark:text-gray-200 text-gray-800'> {event.path}</span>
-      </div>
-      <Activity activity={event.data} />
-      <div className='flex flex-row items-start justify-between'>
-        <div className='text-gray-600 dark:text-gray-400'>
-          {new Date(event.timestamp).toLocaleTimeString()}
-        </div>
-        <div className='flex flex-col items-end'>
-          <button
-            className='border-0 p-0 bg-inherit underline hover:no-underline text-mastodon-gray-600 cursor-pointer'
-            onClick={() => setShowSource(!showSource)}
-          >
-            {showSource ? 'hide' : 'show'} source
-          </button>
-          {showSource && showExplorerLink && (
-            <a
+        <Activity activity={event.data} />
+        <div className='flex flex-row items-start justify-between'>
+          <div className='text-gray-600 dark:text-gray-400'>
+            {new Date(event.timestamp).toLocaleTimeString()}
+          </div>
+          <div className='flex flex-col items-end'>
+            <button
               className='border-0 p-0 bg-inherit underline hover:no-underline text-mastodon-gray-600 cursor-pointer'
-              onClick={() => onExplorerLinkClick(event.data)}
+              onClick={() => setShowSource(!showSource)}
             >
-              open in explorer
-            </a>
-          )}
-          {showSource && showWorkshopLink && (
-            <a
-              className='border-0 p-0 bg-inherit underline hover:no-underline text-mastodon-gray-600 cursor-pointer'
-              onClick={() => onWorkshopLinkClick(event)}
-            >
-              open in workshop
-            </a>
-          )}
+              {showSource ? 'hide' : 'show'} source
+            </button>
+            {showSource && showExplorerLink && (
+              <a
+                className='border-0 p-0 bg-inherit underline hover:no-underline text-mastodon-gray-600 cursor-pointer'
+                onClick={() => onExplorerLinkClick(event.data)}
+              >
+                open in explorer
+              </a>
+            )}
+            {showSource && showWorkshopLink && (
+              <a
+                className='border-0 p-0 bg-inherit underline hover:no-underline text-mastodon-gray-600 cursor-pointer'
+                onClick={() => onWorkshopLinkClick(event)}
+              >
+                open in workshop
+              </a>
+            )}
+          </div>
         </div>
+        {showSource && (
+          <JsonViewer json={event.data} clickableLinks={clickableLinks} onLinkClick={onLinkClick} />
+        )}
       </div>
-      {showSource && (
-        <JsonViewer json={event.data} clickableLinks={clickableLinks} onLinkClick={onLinkClick} />
+      {event.failure && (
+        <div className='pl-1'>
+          <span className='dark:text-red-500 text-red-600'>Sending failed</span>
+          <span className='dark:text-gray-400 text-gray-600'> ({event.failure})</span>
+        </div>
       )}
     </div>
   );

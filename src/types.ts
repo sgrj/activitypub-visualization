@@ -14,4 +14,5 @@ export interface ILogEvent {
   type: 'inbound' | 'outbound' | 'keep-alive';
   path: string;
   data: IActivity;
+  failure?: string;
 }

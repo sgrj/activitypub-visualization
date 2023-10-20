@@ -6,6 +6,7 @@ import { ActivityPubVisualization } from '../index';
 import { useParams } from 'react-router-dom';
 
 import logsFollowCreateLike from './logs/follow-create-like.json';
+import logsFailedFollow from './logs/failed-follow.json';
 import logsQuestionWithVotes from './logs/question-with-votes.json';
 import logsAnnounce from './logs/announce.json';
 import logsUpdatePerson from './logs/update-person.json';
@@ -30,6 +31,8 @@ export default function Log() {
       return logsUpdatePerson;
     } else if (logName == 'follow-create-like') {
       return logsFollowCreateLike;
+    } else if (logName == 'failed-follow') {
+      return logsFailedFollow;
     } else if (logName == 'question-with-votes') {
       return logsQuestionWithVotes;
     } else if (logName == 'announce') {
