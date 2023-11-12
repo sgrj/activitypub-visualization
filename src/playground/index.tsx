@@ -9,6 +9,7 @@ import Root from './root';
 import Log from './log';
 import Explorer from './explorer';
 import Workshop from './workshop';
+import Forge from './forge';
 import Colors from './colors';
 
 const elt = document.createElement('div');
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: 'workshop/:data',
         element: <Workshop />,
+      },
+      {
+        path: 'webfinger/:data',
+        element: <Forge />,
       },
       {
         path: 'colors',
