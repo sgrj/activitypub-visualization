@@ -9,17 +9,28 @@ import { useParams } from 'react-router-dom';
 export default function Explorer() {
   const { data } = useParams();
 
-  const fail = data === 'failure';
-
   return (
     <WebFingerForge
       key={data}
-      onSubmit={async () => {
+      loadData={async () => {
         return new Promise((resolve, reject) =>
-          setTimeout(() => (fail ? reject(new Error('failed')) : resolve(null)), 500)
+          setTimeout(
+            () =>
+              data === 'failing-load'
+                ? reject(new Error('failed'))
+                : resolve(JSON.stringify(aliceWebFinger, null, 2)),
+            500
+          )
         );
       }}
-      initialValue={JSON.stringify(aliceWebFinger, null, 2)}
+      onSubmit={async () => {
+        return new Promise((resolve, reject) =>
+          setTimeout(
+            () => (data === 'failing-save' ? reject(new Error('failed')) : resolve(null)),
+            500
+          )
+        );
+      }}
     />
   );
 }

@@ -74,7 +74,7 @@ export default function Root() {
           </div>
           <div className='py-2 font-medium text-base'>WebFinger Forge</div>
           <div className='px-2'>
-            {['success', 'failure'].map((data) => (
+            {['success', 'failing-save', 'failing-load'].map((data) => (
               <div key={data} className='py-0.5'>
                 <Link className={linkStyle} to={`/webfinger/${data}?${searchParams.toString()}`}>
                   {data}
