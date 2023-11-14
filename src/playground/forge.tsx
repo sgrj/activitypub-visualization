@@ -23,7 +23,7 @@ export default function Explorer() {
           )
         );
       }}
-      onSubmit={async () => {
+      onSubmit={async (value: string) => {
         return new Promise((resolve, reject) =>
           setTimeout(
             () => (data === 'failing-save' ? reject(new Error('failed')) : resolve(null)),

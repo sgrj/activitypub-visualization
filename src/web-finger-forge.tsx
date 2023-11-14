@@ -14,10 +14,11 @@ export default function WebFingerForge({
   onSubmit,
   loadData,
 }: {
-  onSubmit: () => Promise<void>;
+  onSubmit: (value: string) => Promise<void>;
   loadData: () => Promise<string>;
 }) {
   const [saveError, setSaveError] = useState(null);
+  const [saveMessage, setSaveMessage] = useState(null);
   const [loadingError, setLoadingError] = useState(null);
 
   const [loading, setLoading] = useState(false);
@@ -39,6 +40,7 @@ export default function WebFingerForge({
 
   const send = async () => {
     setSaveError(null);
+    setSaveMessage(null);
 
     try {
       JSON.parse(value);
@@ -49,7 +51,8 @@ export default function WebFingerForge({
 
     try {
       setSaving(true);
-      await onSubmit();
+      await onSubmit(value);
+      setSaveMessage('Saved successfully');
     } catch (e) {
       setSaveError('Failed to send. Please try again.');
     }
@@ -86,6 +89,7 @@ export default function WebFingerForge({
               onBeforeChange={(editor, data, value) => {
                 setValue(value);
                 setSaveError(null);
+                setSaveMessage(null);
               }}
               options={{
                 mode: { name: 'javascript', json: true },
@@ -109,7 +113,8 @@ export default function WebFingerForge({
                 {saving ? <LoadingIndicator small colorDefinition='white' /> : 'Save'}
               </div>
             </button>
-            <div className='mx-4 dark:text-red-400 text-red-700'>{saveError}</div>
+            {saveError && <div className='mx-4 dark:text-red-400 text-red-700'>{saveError}</div>}
+            {saveMessage && <div className='mx-4 dark:text-white'>{saveMessage}</div>}
           </div>
         </div>
       )}
