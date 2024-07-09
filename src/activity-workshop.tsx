@@ -26,11 +26,13 @@ export default function ActivityWorkshop({
   const [errorMessage, setErrorMessage] = useState(null);
   const [activityErrorMessage, setActivityErrorMessage] = useState(null);
   const [inboxUrlErrorMessage, setInboxUrlErrorMessage] = useState(null);
+  const [sentMessage, setSentMessage] = useState(null);
 
   const [loading, setLoading] = useState(false);
 
   const send = async () => {
     setErrorMessage(null);
+    setSentMessage(null);
 
     try {
       const url = new URL(inboxUrl);
@@ -55,6 +57,7 @@ export default function ActivityWorkshop({
     try {
       setLoading(true);
       await onSubmit();
+      setSentMessage('Message sent successfully');
     } catch (e) {
       setErrorMessage('Failed to send. Please try again.');
     }
@@ -128,6 +131,7 @@ export default function ActivityWorkshop({
           onBeforeChange={(editor, data, value) => {
             setActivityErrorMessage(null);
             setErrorMessage(null);
+            setSentMessage(null);
             onActivityChange(value);
           }}
           options={{
@@ -153,7 +157,8 @@ export default function ActivityWorkshop({
             {loading ? <LoadingIndicator small colorDefinition='white' /> : 'Publish!'}
           </div>
         </button>
-        <div className='mx-4 dark:text-red-400 text-red-700'>{errorMessage}</div>
+        {errorMessage && <div className='mx-4 dark:text-red-400 text-red-700'>{errorMessage}</div>}
+        {sentMessage && <div className='mx-4 dark:text-white'>{sentMessage}</div>}
       </div>
     </div>
   );
