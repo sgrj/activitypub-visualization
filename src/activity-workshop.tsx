@@ -57,7 +57,7 @@ export default function ActivityWorkshop({
     try {
       setLoading(true);
       await onSubmit();
-      setSentMessage('Message sent successfully');
+      setSentMessage('Activity added to outbound queue');
     } catch (e) {
       setErrorMessage('Failed to send. Please try again.');
     }

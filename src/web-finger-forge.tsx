@@ -54,7 +54,7 @@ export default function WebFingerForge({
       await onSubmit(value);
       setSaveMessage('Saved successfully');
     } catch (e) {
-      setSaveError('Failed to send. Please try again.');
+      setSaveError('Failed to save. Please try again.');
     }
     setSaving(false);
   };
