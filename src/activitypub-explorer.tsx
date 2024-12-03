@@ -74,8 +74,7 @@ export default function ActivityPubExplorer({
     setLoading(true);
 
     const response = await fetchMethod(url);
-
-    setLoading(false);
+    const activityJson = await response.json();
 
     try {
       setHistory([
@@ -84,7 +83,7 @@ export default function ActivityPubExplorer({
           url,
           status: response.status,
           statusText: response.statusText,
-          activityJson: await response.json(),
+          activityJson: activityJson,
           validJson: true,
         },
       ]);
@@ -99,6 +98,8 @@ export default function ActivityPubExplorer({
           validJson: false,
         },
       ]);
+    } finally {
+      setLoading(false);
     }
   };
 
